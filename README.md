@@ -18,19 +18,6 @@ Only Google Fonts is loaded from the internet.
 
 ---
 
-## How to use / طريقة الاستخدام
-
-1. Double-click `index.html` to open it in any browser.
-2. To publish online, upload `index.html` (and `instructor.jpg` if you use it) to any web host:
-   GitHub Pages, Netlify, Vercel, Cloudflare Pages, or normal shared hosting.
-
-### Add your photo / إضافة صورتك
-Place your picture in the same folder as `index.html` and name it exactly `instructor.jpg`
-(lowercase). The code also auto-tries `instructor.png`, `instructor.jpeg`, `instructor.webp`,
-`profile.jpg/png`, and `me.jpg`.
-
----
-
 ## Features / المميزات
 
 - **Bilingual toggle** (🌐): switches the whole page between Arabic (RTL) and English (LTR).
