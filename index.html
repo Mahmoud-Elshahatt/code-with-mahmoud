@@ -240,6 +240,40 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted)}
   .faq-a p{padding:0 20px 18px;font-size:.96rem}
 
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:#fff;overflow:hidden}
+  .reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .reviews-head .center{text-align:start}
+  .reviews-nav{display:flex;gap:10px;flex:none}
+  .rev-arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;
+    display:grid;place-items:center;color:var(--ink);padding:0;position:relative;isolation:isolate;
+    box-shadow:0 4px 12px rgba(16,20,42,.06);
+    transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,color .22s,border-color .22s}
+  .rev-arrow::before{content:"";position:absolute;inset:0;border-radius:50%;z-index:-1;
+    background:var(--grad-pro);opacity:0;transform:scale(.6);transition:opacity .22s,transform .22s}
+  .rev-arrow svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .22s}
+  .rev-arrow:hover{color:#fff;border-color:transparent;transform:translateY(-3px);box-shadow:0 12px 24px rgba(37,99,235,.32)}
+  .rev-arrow:hover::before{opacity:1;transform:scale(1)}
+  .rev-arrow:active{transform:translateY(-1px) scale(.94)}
+  .rev-arrow:focus-visible{outline:2px solid var(--pro-1);outline-offset:3px}
+  .rev-arrow:disabled{opacity:.3;cursor:default;color:var(--muted);border-color:var(--line);transform:none;box-shadow:none}
+  .rev-arrow:disabled::before{opacity:0}
+  .reviews-nav.hidden{display:none}
+  .reviews-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    padding:6px 2px 20px;-ms-overflow-style:none;scrollbar-width:none}
+  .reviews-track::-webkit-scrollbar{display:none}
+  .review-card{flex:0 0 340px;max-width:84vw;scroll-snap-align:start;background:#f6f7fc;border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
+  .review-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(37,99,235,.25)}
+  .review-card .stars{color:#ffb020;font-size:1.05rem;letter-spacing:2px}
+  .review-card .rev-text{color:#3a4055;font-size:.98rem;line-height:1.85;flex:1}
+  .review-card .rev-who{display:flex;align-items:center;gap:12px;margin-top:2px}
+  .review-card .rev-av{width:46px;height:46px;border-radius:50%;background:var(--grad-hero);color:#fff;
+    display:grid;place-items:center;font-weight:900;font-size:1.05rem;flex:none}
+  .review-card .rev-name{font-weight:600;font-size:1rem;line-height:1.2}
+  .review-card .rev-age{color:var(--muted);font-size:.84rem;font-weight:700}
+
   /* ---------- CONTACT / FOOTER ---------- */
   .contact{background:var(--bg);color:#fff;position:relative;overflow:hidden}
   .contact .wrap{position:relative;z-index:1}
@@ -287,6 +321,10 @@
   html[data-theme="dark"] .chips span{background:#161a2b}
   html[data-theme="dark"] .why-item,
   html[data-theme="dark"] .faq-item{background:#10131f}
+  html[data-theme="dark"] .reviews{background:#0b0d18}
+  html[data-theme="dark"] .review-card{background:#161a2b}
+  html[data-theme="dark"] .review-card .rev-text{color:#c4c8da}
+  html[data-theme="dark"] .rev-arrow{background:#161a2b;color:var(--ink)}
   html[data-theme="dark"] header.nav{background:rgba(11,13,24,.85)}
   html[data-theme="dark"] .lang-toggle,
   html[data-theme="dark"] .btn-ghost{background:#161a2b;color:var(--ink)}
@@ -345,6 +383,7 @@
       <a href="#courses" data-i18n="nav_courses">الدورات</a>
       <a href="#why" data-i18n="nav_why">لماذا أنا</a>
       <a href="#projects" data-i18n="nav_projects">المشاريع</a>
+      <a href="#reviews" data-i18n="nav_reviews">الآراء</a>
       <a href="#about" data-i18n="nav_about">عن المدرّب</a>
       <a href="#faq" data-i18n="nav_faq">الأسئلة</a>
       <a href="#contact" data-i18n="nav_contact">تواصل</a>
@@ -499,6 +538,34 @@
   </div>
 </section>
 
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head">
+      <div class="center reveal">
+        <span class="eyebrow" data-i18n="rev_eyebrow">آراء الطلاب</span>
+        <h2 class="sec-title" data-i18n="rev_title">ماذا قال طلابي؟</h2>
+        <p class="sec-sub" style="margin-bottom:0" data-i18n="rev_sub">آراء من طلابي بعد كل جلسة، حتى تتأكد قبل ما تبدأ رحلتك 😉</p>
+      </div>
+      <div class="reviews-nav reveal" id="revNav">
+        <button class="rev-arrow" id="revPrev" type="button" aria-label="السابق" data-i18n-aria="rev_prev"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+        <button class="rev-arrow" id="revNext" type="button" aria-label="التالي" data-i18n-aria="rev_next"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="reviews-track" id="revTrack">
+      <div class="review-card reveal"><p class="rev-text">السيشن كانت ممتازة وممتعة والشرح كان واضح جدًا وسهل، وخلتني أحب البرمجة أكتر. شكرًا يا مستر ❤️</p><div class="rev-who"><div class="rev-av">ح</div><div><div class="rev-name">حنين أحمد</div><div class="rev-age">14 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">بسم الله ماشاء الله، شرح المستر فوق الممتاز وكمان بيسهّل الشرح علينا. ربنا يجعله في ميزان حسناته ويبارك فيه.</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رويدا</div><div class="rev-age">14 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">جميلة جدًا وممتعة، بارك الله فيكم جميعًا يا رب. نرجو منكم المزيد بإذن الله.</p><div class="rev-who"><div class="rev-av">م</div><div><div class="rev-name">محمد ياسر أبو الفتوح</div><div class="rev-age">13 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">عايزة أشكر المستر على مجهوده معانا، وجزاه الله كل خير.</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رناد أحمد حمدي</div><div class="rev-age">13 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">حصة رائعة وجميلة جدًا.</p><div class="rev-who"><div class="rev-av">س</div><div><div class="rev-name">سفيان محمد حسن</div><div class="rev-age">13 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">جميل أوي ماشاء الله 🌸</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">ريتال وسام</div><div class="rev-age">10 سنوات</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">جزاه الله خيرًا، حلو أوي.</p><div class="rev-who"><div class="rev-av">ن</div><div><div class="rev-name">نورين وسام</div><div class="rev-age">11 سنة</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">جميلة جدًا، بسم الله ماشاء الله ♥️♥️♥️</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رودينا إيهاب</div><div class="rev-age">10 سنوات</div></div></div></div>
+      <div class="review-card reveal"><p class="rev-text">جيدة جدًا وجميلة.</p><div class="rev-who"><div class="rev-av">م</div><div><div class="rev-name">محمد حجازي</div><div class="rev-age">9 سنوات</div></div></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="wrap about-grid">
@@ -591,7 +658,8 @@
 const I18N = {
   ar:{
     brand:"محمود الشحات",
-    nav_courses:"الدورات",nav_why:"لماذا أنا",nav_projects:"المشاريع",nav_about:"عن المدرّب",nav_faq:"الأسئلة",nav_contact:"تواصل",nav_cta:"ابدأ الآن",
+    nav_courses:"الدورات",nav_why:"لماذا أنا",nav_projects:"المشاريع",nav_reviews:"الآراء",nav_about:"عن المدرّب",nav_faq:"الأسئلة",nav_contact:"تواصل",nav_cta:"ابدأ الآن",
+    rev_eyebrow:"آراء الطلاب",rev_title:"ماذا قال طلابي؟",rev_sub:"آراء من طلابي بعد كل جلسة، حتى تتأكد قبل ما تبدأ رحلتك 😉",
     hero_badge:"🚀 تعلّم البرمجة من مطوّر محترف",
     hero_title:'تعلّم البرمجة من الصفر إلى <span class="hl">احتراف حقيقي</span>',
     hero_lead:"دروس برمجة للأطفال والكبار في مصر — من ألعاب سكراتش وبايثون الممتعة، إلى بناء تطبيق أندرويد حقيقي بلغة كوتلن. تعليم عملي على يد مطوّر شحن أكثر من ٨ تطبيقات على جوجل بلاي.",
@@ -638,7 +706,8 @@ const I18N = {
   },
   en:{
     brand:"Mahmoud Elshahatt",
-    nav_courses:"Courses",nav_why:"Why Me",nav_projects:"Projects",nav_about:"Instructor",nav_faq:"FAQ",nav_contact:"Contact",nav_cta:"Start Now",
+    nav_courses:"Courses",nav_why:"Why Me",nav_projects:"Projects",nav_reviews:"Reviews",nav_about:"Instructor",nav_faq:"FAQ",nav_contact:"Contact",nav_cta:"Start Now",
+    rev_eyebrow:"Student Reviews",rev_title:"What my students say",rev_sub:"Real reviews from my students after every session — so you can be sure before you start your journey 😉",
     hero_badge:"🚀 Learn coding from a professional developer",
     hero_title:'Learn to code from zero to <span class="hl">real mastery</span>',
     hero_lead:"Programming lessons for kids and adults in Egypt — from fun Scratch & Python games to building a real Android app in Kotlin. Hands-on teaching from a developer who shipped 8+ apps on Google Play.",
@@ -796,6 +865,29 @@ const cio=new IntersectionObserver((entries)=>{
   });
 },{threshold:.5});
 document.querySelectorAll("[data-count]").forEach(el=>cio.observe(el));
+
+/* reviews horizontal slider */
+(function(){
+  const track=document.getElementById("revTrack");
+  if(!track)return;
+  const prev=document.getElementById("revPrev"),next=document.getElementById("revNext"),nav=document.getElementById("revNav");
+  const step=()=>{const c=track.querySelector(".review-card");return c?c.getBoundingClientRect().width+20:340;};
+  // RTL-safe edge detection: scrollLeft can be negative in RTL
+  const sync=()=>{
+    const max=track.scrollWidth-track.clientWidth-1;
+    const off=Math.abs(track.scrollLeft);
+    if(nav)nav.classList.toggle("hidden",max<=1);
+    if(prev)prev.disabled=off<=1;          // at start → nothing before
+    if(next)next.disabled=off>=max;         // at end → nothing after
+  };
+  // direction-aware: forward = leftward in RTL, rightward in LTR
+  const rtl=()=>getComputedStyle(track).direction==="rtl";
+  if(next)next.addEventListener("click",()=>track.scrollBy({left:(rtl()?-1:1)*step(),behavior:"smooth"}));
+  if(prev)prev.addEventListener("click",()=>track.scrollBy({left:(rtl()?1:-1)*step(),behavior:"smooth"}));
+  track.addEventListener("scroll",sync,{passive:true});
+  window.addEventListener("resize",sync);
+  sync();
+})();
 
 /* copy payment numbers */
 document.querySelectorAll(".copy-btn").forEach(btn=>{
