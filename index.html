@@ -274,6 +274,47 @@
   .review-card .rev-name{font-weight:600;font-size:1rem;line-height:1.2}
   .review-card .rev-age{color:var(--muted);font-size:.84rem;font-weight:700}
 
+  /* ---------- GALLERY ---------- */
+  .gallery{background:#fff}
+  .gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:800px;margin:0 auto}
+  .gal-item{margin:0;position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    background:#f6f7fc;box-shadow:var(--shadow-sm);cursor:pointer;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
+  .gal-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .gal-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--grad-hero);display:grid;place-items:center}
+  .gal-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .gal-thumb .ph{color:#fff;font-size:2.8rem}
+  .gal-badge{position:absolute;inset-inline-start:12px;top:12px;background:rgba(8,10,22,.55);color:#fff;
+    font-weight:800;font-size:.74rem;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+  .gal-zoom{position:absolute;inset-inline-end:12px;top:12px;width:34px;height:34px;border-radius:50%;
+    background:rgba(8,10,22,.5);color:#fff;display:grid;place-items:center;font-size:1rem;opacity:0;transition:.2s}
+  .gal-item:hover .gal-zoom{opacity:1}
+  .gal-info{padding:16px 18px;text-align:start}
+  .gal-info h3{font-size:1.05rem;font-weight:800;margin-bottom:3px}
+  .gal-info p{color:var(--muted);font-size:.86rem;line-height:1.6}
+  .gal-soon{cursor:default;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);
+    border-style:dashed}
+  .gal-soon:hover{transform:none;box-shadow:var(--shadow-sm)}
+  .gal-soon .ico{font-size:2rem;margin-bottom:8px}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(8,10,22,.93);display:none;align-items:center;justify-content:center;padding:30px}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:82vh;border-radius:14px;box-shadow:var(--shadow-lg);background:#0b1020}
+  .lb-cap{position:absolute;bottom:22px;inset-inline:0;text-align:center;color:#fff;font-weight:700;font-size:1rem;padding:0 20px}
+  .lb-close{position:absolute;top:18px;inset-inline-end:22px;width:46px;height:46px;border-radius:50%;border:none;
+    background:rgba(255,255,255,.15);color:#fff;font-size:1.4rem;cursor:pointer;transition:.2s}
+  .lb-close:hover{background:rgba(255,255,255,.32);transform:rotate(90deg)}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .wa-float{position:fixed;bottom:22px;inset-inline-end:22px;z-index:80;width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;animation:waPulse 2.6s ease-in-out infinite}
+  .wa-float svg{width:32px;height:32px;fill:#fff}
+  .wa-float:hover{transform:scale(1.08) translateY(-2px);box-shadow:0 14px 34px rgba(37,211,102,.58)}
+  @keyframes waPulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.45)}
+    50%{box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}}
+
   /* ---------- CONTACT / FOOTER ---------- */
   .contact{background:var(--bg);color:#fff;position:relative;overflow:hidden}
   .contact .wrap{position:relative;z-index:1}
@@ -322,6 +363,8 @@
   html[data-theme="dark"] .why-item,
   html[data-theme="dark"] .faq-item{background:#10131f}
   html[data-theme="dark"] .reviews{background:#0b0d18}
+  html[data-theme="dark"] .gallery{background:#10131f}
+  html[data-theme="dark"] .gal-item{background:#161a2b}
   html[data-theme="dark"] .review-card{background:#161a2b}
   html[data-theme="dark"] .review-card .rev-text{color:#c4c8da}
   html[data-theme="dark"] .rev-arrow{background:#161a2b;color:var(--ink)}
@@ -342,6 +385,7 @@
     .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
     .hero-art{height:300px;margin-top:10px}
     .course-grid,.why-grid,.proj-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
     .stats-grid{grid-template-columns:repeat(2,1fr);gap:30px 20px}
     nav.links{display:none}
     nav.links.show{
@@ -361,6 +405,9 @@
     .pay-method .info{flex:1 1 0;min-width:120px}
     .pay-method .num{font-size:1rem;letter-spacing:.3px}
     .copy-btn{flex:1 1 100%;justify-content:center;padding:11px}
+    .wa-float{width:54px;height:54px;bottom:18px;inset-inline-end:18px}
+    .wa-float svg{width:28px;height:28px}
+    .gal-grid{grid-template-columns:1fr}
   }
   @media(max-width:360px){
     .pay-method .num{font-size:.92rem}
@@ -383,6 +430,7 @@
       <a href="#courses" data-i18n="nav_courses">الدورات</a>
       <a href="#why" data-i18n="nav_why">لماذا أنا</a>
       <a href="#projects" data-i18n="nav_projects">المشاريع</a>
+      <a href="#gallery" data-i18n="nav_gallery">المعرض</a>
       <a href="#reviews" data-i18n="nav_reviews">الآراء</a>
       <a href="#about" data-i18n="nav_about">عن المدرّب</a>
       <a href="#faq" data-i18n="nav_faq">الأسئلة</a>
@@ -538,6 +586,38 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap center">
+    <span class="eyebrow reveal" data-i18n="gal_eyebrow">معرض الأعمال</span>
+    <h2 class="sec-title reveal" data-i18n="gal_title">أعمال نفّذها طلابي</h2>
+    <p class="sec-sub reveal" data-i18n="gal_sub">ألعاب وتطبيقات حقيقية بناها الطلاب خلال الدورات — اضغط على أي عمل لعرضه بحجم أكبر.</p>
+    <div class="gal-grid">
+
+      <figure class="gal-item reveal" data-full="gallery/scratch-platformer.png">
+        <div class="gal-thumb">
+          <span class="gal-badge" data-i18n="gal1_tag">Scratch · أطفال</span>
+          <span class="gal-zoom">⤢</span>
+          <img src="gallery/scratch-platformer.png" alt="لعبة منصّات بالسكراتش" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />
+          <span class="ph" style="display:none">🎮</span>
+        </div>
+        <figcaption class="gal-info"><h3 data-i18n="gal1_t">لعبة Mario</h3><p data-i18n="gal1_d">لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.</p></figcaption>
+      </figure>
+
+      <figure class="gal-item reveal" data-full="gallery/family-app.png">
+        <div class="gal-thumb">
+          <span class="gal-badge" data-i18n="gal2_tag">Kotlin · كبار</span>
+          <span class="gal-zoom">⤢</span>
+          <img src="gallery/family-app.png" alt="تطبيق أفراد العائلة بالأندرويد" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />
+          <span class="ph" style="display:none">📱</span>
+        </div>
+        <figcaption class="gal-info"><h3 data-i18n="gal2_t">تطبيق أفراد العائلة</h3><p data-i18n="gal2_d">تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.</p></figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="wrap">
@@ -647,6 +727,18 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="إغلاق" data-i18n-aria="lb_close">✕</button>
+  <img id="lbImg" src="" alt="" onerror="this.style.display='none'" />
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" id="waFloat" href="https://wa.me/201093729626" target="_blank" rel="noopener" aria-label="WhatsApp" title="راسلني على واتساب">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
 <footer class="foot">
   <div class="wrap">
     <p data-i18n="foot">© 2026 محمود الشحات — تعلّم البرمجة. جميع الحقوق محفوظة.</p>
@@ -658,8 +750,12 @@
 const I18N = {
   ar:{
     brand:"محمود الشحات",
-    nav_courses:"الدورات",nav_why:"لماذا أنا",nav_projects:"المشاريع",nav_reviews:"الآراء",nav_about:"عن المدرّب",nav_faq:"الأسئلة",nav_contact:"تواصل",nav_cta:"ابدأ الآن",
-    rev_eyebrow:"آراء الطلاب",rev_title:"ماذا قال طلابي؟",rev_sub:"آراء من طلابي بعد كل جلسة، حتى تتأكد قبل ما تبدأ رحلتك 😉",
+    nav_courses:"الدورات",nav_why:"لماذا أنا",nav_projects:"المشاريع",nav_gallery:"المعرض",nav_reviews:"الآراء",nav_about:"عن المدرّب",nav_faq:"الأسئلة",nav_contact:"تواصل",nav_cta:"ابدأ الآن",
+    gal_eyebrow:"معرض الأعمال",gal_title:"أعمال نفّذها طلابي",gal_sub:"ألعاب وتطبيقات حقيقية بناها الطلاب خلال الدورات — اضغط على أي عمل لعرضه بحجم أكبر.",
+    gal1_tag:"Scratch · أطفال",gal1_t:"لعبة Mario",gal1_d:"لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.",
+    gal2_tag:"Kotlin · كبار",gal2_t:"تطبيق أفراد العائلة",gal2_d:"تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.",
+    lb_close:"إغلاق",
+    rev_eyebrow:"آراء الطلاب",rev_title:"ماذا قال طلابي؟",rev_sub:"آراء من طلابي بعد كل جلسة، حتى تتأكد قبل ما تبدأ رحلتك 😉",rev_prev:"السابق",rev_next:"التالي",
     hero_badge:"🚀 تعلّم البرمجة من مطوّر محترف",
     hero_title:'تعلّم البرمجة من الصفر إلى <span class="hl">احتراف حقيقي</span>',
     hero_lead:"دروس برمجة للأطفال والكبار في مصر — من ألعاب سكراتش وبايثون الممتعة، إلى بناء تطبيق أندرويد حقيقي بلغة كوتلن. تعليم عملي على يد مطوّر شحن أكثر من ٨ تطبيقات على جوجل بلاي.",
@@ -706,8 +802,12 @@ const I18N = {
   },
   en:{
     brand:"Mahmoud Elshahatt",
-    nav_courses:"Courses",nav_why:"Why Me",nav_projects:"Projects",nav_reviews:"Reviews",nav_about:"Instructor",nav_faq:"FAQ",nav_contact:"Contact",nav_cta:"Start Now",
-    rev_eyebrow:"Student Reviews",rev_title:"What my students say",rev_sub:"Real reviews from my students after every session — so you can be sure before you start your journey 😉",
+    nav_courses:"Courses",nav_why:"Why Me",nav_projects:"Projects",nav_gallery:"Gallery",nav_reviews:"Reviews",nav_about:"Instructor",nav_faq:"FAQ",nav_contact:"Contact",nav_cta:"Start Now",
+    gal_eyebrow:"Work Gallery",gal_title:"Projects built by my students",gal_sub:"Real games and apps students built during the courses — tap any work to view it larger.",
+    gal1_tag:"Scratch · Kids",gal1_t:"Mario Game",gal1_d:"A game with score, lives, enemies, coins and platforms — built by students in Scratch.",
+    gal2_tag:"Kotlin · Adults",gal2_t:"Family Members App",gal2_d:"An Android app to manage family members with an Arabic UI — built with Kotlin.",
+    lb_close:"Close",
+    rev_eyebrow:"Student Reviews",rev_title:"What my students say",rev_sub:"Real reviews from my students after every session — so you can be sure before you start your journey 😉",rev_prev:"Previous",rev_next:"Next",
     hero_badge:"🚀 Learn coding from a professional developer",
     hero_title:'Learn to code from zero to <span class="hl">real mastery</span>',
     hero_lead:"Programming lessons for kids and adults in Egypt — from fun Scratch & Python games to building a real Android app in Kotlin. Hands-on teaching from a developer who shipped 8+ apps on Google Play.",
@@ -784,10 +884,19 @@ function applyLang(l){
     const k=el.getAttribute("data-i18n");
     if(dict[k]!==undefined) el.innerHTML=dict[k];
   });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-ph");
+    if(dict[k]!==undefined) el.placeholder=dict[k];
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-aria");
+    if(dict[k]!==undefined) el.setAttribute("aria-label",dict[k]);
+  });
   document.getElementById("langLabel").textContent = l==="ar" ? "EN" : "ع";
   // wa links
   document.getElementById("heroWa").href=waLink("general",l);
   document.getElementById("contactWa").href=waLink("contact",l);
+  const wf=document.getElementById("waFloat"); if(wf) wf.href=waLink("general",l);
   document.querySelectorAll(".enroll").forEach(a=>{
     a.href=waLink(a.getAttribute("data-course"),l);
   });
@@ -887,6 +996,24 @@ document.querySelectorAll("[data-count]").forEach(el=>cio.observe(el));
   track.addEventListener("scroll",sync,{passive:true});
   window.addEventListener("resize",sync);
   sync();
+})();
+
+/* gallery lightbox */
+(function(){
+  const lb=document.getElementById("lightbox");
+  if(!lb)return;
+  const img=document.getElementById("lbImg"),cap=document.getElementById("lbCap"),closeBtn=document.getElementById("lbClose");
+  const open=(src,caption)=>{img.style.display="block";img.src=src;cap.textContent=caption||"";lb.classList.add("open");document.body.style.overflow="hidden";};
+  const close=()=>{lb.classList.remove("open");img.src="";document.body.style.overflow="";};
+  document.querySelectorAll(".gal-item[data-full]").forEach(it=>{
+    it.addEventListener("click",()=>{
+      const t=it.querySelector(".gal-info h3");
+      open(it.getAttribute("data-full"),t?t.textContent:"");
+    });
+  });
+  closeBtn.addEventListener("click",close);
+  lb.addEventListener("click",e=>{if(e.target===lb)close();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
 })();
 
 /* copy payment numbers */
