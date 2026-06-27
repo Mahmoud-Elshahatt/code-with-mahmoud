@@ -10,7 +10,7 @@ teaching services in Egypt: kids (Scratch + Python), adults (Kotlin + Android), 
 ## Files / الملفات
 
 - `index.html` — the entire website (HTML + CSS + JavaScript, all in one file).
-- `instructor.jpg` — *(optional)* your profile photo. If missing, the page falls back to your initials.
+- `instructor.jpg` — your profile photo. If missing, the page falls back to your initials.
 - `README.md` — this file.
 
 Everything else (fonts, icons, the Vodafone & InstaPay logos, the favicon) is built into `index.html`.
