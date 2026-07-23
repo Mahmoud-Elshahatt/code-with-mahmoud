@@ -30,6 +30,7 @@
     --grad-hero:linear-gradient(135deg,#7b61ff 0%,#2563eb 45%,#22c1c3 100%);
     --grad-kid:linear-gradient(135deg,#ff5d8f,#ffb020);
     --grad-pro:linear-gradient(135deg,#2563eb,#0ea5e9);
+    --grad-videos:linear-gradient(135deg,#f59e0b,#ef4444);
     --radius:22px;
     --shadow-sm:0 6px 18px rgba(16,20,42,.08);
     --shadow-lg:0 22px 50px rgba(16,20,42,.18);
@@ -170,6 +171,7 @@
   .card .ico{font-size:2.4rem;margin-bottom:8px}
   .card h3{font-size:1.3rem;font-weight:900;margin-bottom:6px}
   .card .stack{color:var(--muted);font-weight:700;font-size:.92rem;margin-bottom:16px}
+  .videos-count{font-size:.95rem;font-weight:800;margin-bottom:10px;color:var(--accent)}
   .price{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
   .price .amt{font-size:2.1rem;font-weight:900}
   .price .per{color:var(--muted);font-weight:700;font-size:.9rem}
@@ -552,12 +554,13 @@
 
       <!-- VIDEOS -->
       <div class="card videos reveal">
-        <span class="tag" data-i18n="videos_tag">فيديوهات مسجّلة مسبقًا 🎬</span>
-        <div class="ico">📹🐱</div>
+        <span class="tag" data-i18n="videos_tag">فيديوهات مسجّلة مسبقًا</span>
+        <div class="ico">🐱🎬</div>
         <h3 data-i18n="videos_title">دروس سكراتش مسجّلة</h3>
+        <div class="videos-count" data-i18n="videos_count">أكثر من 10 فيديوهات مسجّلة</div>
         <div class="stack" data-i18n="videos_stack">Scratch — فيديوهات مسجّلة</div>
-        <div class="price"><span class="amt">200</span><span class="per" data-i18n="videos_per">ج.م / مرّة واحدة</span></div>
-        <div class="duration" data-i18n="videos_dur">⏳ اشتراك مدى الحياة</div>
+        <div class="price"><span class="amt">250</span><span class="per" data-i18n="videos_per">ج.م / مرّة واحدة</span></div>
+        <div class="duration" data-i18n="videos_dur">اشتراك مدى الحياة</div>
         <ul class="feat">
           <li data-i18n="videos_f1">مجموعة كاملة من دروس سكراتش من الصفر</li>
           <li data-i18n="videos_f2">شاهد في أي وقت — من أي جهاز</li>
@@ -803,7 +806,7 @@ const I18N = {
     adults_f1:"من أساسيات كوتلن إلى بناء ونشر تطبيق أندرويد حقيقي",adults_f2:"مشاريع عملية بأسلوب احترافي",adults_f3:"أدوات حديثة مثل Jetpack Compose و XML ومكتبات Jetpack الحديثة",adults_f4:"إرشاد مبني على خبرة صناعة حقيقية",
     school_tag:"طلاب الثانوية",school_title:"مادة البرمجة للثانوية",school_stack:"دروس خصوصية لمنهج الثانوية",contact_price:"تواصل لمعرفة السعر",school_dur:"⏳ حسب احتياج الطالب",
     school_f1:"دعم مركّز على الامتحانات",school_f2:"فهم عملي للمنهج وليس حفظًا فقط",school_f3:"متابعة فردية وحل تمارين",school_f4:"رفع الدرجات والثقة في المادة",
-    videos_tag:"فيديوهات مسجّلة مسبقًا 🎬",videos_title:"دروس سكراتش مسجّلة",videos_stack:"Scratch — فيديوهات مسجّلة",
+    videos_tag:"فيديوهات مسجّلة مسبقًا",videos_title:"دروس سكراتش مسجّلة",videos_count:"🎥 أكثر من 10 فيديوهات مسجّلة",videos_stack:"Scratch — فيديوهات مسجّلة",
     videos_per:"ج.م / مرّة واحدة",videos_dur:"⏳ اشتراك مدى الحياة",
     videos_f1:"مجموعة كاملة من دروس سكراتش من الصفر",videos_f2:"شاهد في أي وقت — من أي جهاز",videos_f3:"مشاريع عملية: ألعاب ومنصّات وقصص تفاعلية",videos_f4:"وصول مدى الحياة بدون اشتراك شهري",
     per_month:"ج.م / شهريًا",months3:"⏳ مدة الدورة: 3 أشهر",enroll:"اشترك الآن",
@@ -858,8 +861,8 @@ const I18N = {
     adults_f1:"From Kotlin basics to building & publishing a real Android app",adults_f2:"Hands-on, professional-style projects",adults_f3:"Modern tools like Jetpack Compose, XML & Jetpack libraries",adults_f4:"Mentoring grounded in real industry experience",
     school_tag:"Secondary Students",school_title:"Secondary School Programming",school_stack:"Private tutoring for the curriculum",contact_price:"Contact for details",school_dur:"⏳ Based on the student's needs",
     school_f1:"Exam-focused support",school_f2:"Practical understanding, not just memorizing",school_f3:"One-on-one follow-up & exercises",school_f4:"Higher grades & confidence in the subject",
-    videos_tag:"Pre-recorded Videos 🎬",videos_title:"Recorded Scratch Lessons",videos_stack:"Scratch — Recorded Videos",
-    videos_per:"EGP / one-time",videos_dur:"⏳ Lifetime access",
+    videos_tag:"Pre-recorded Videos",videos_title:"Recorded Scratch Lessons",videos_count:"10+ recorded videos included",videos_stack:"Scratch — Recorded Videos",
+    videos_per:"EGP / one-time",videos_dur:"Lifetime access",
     videos_f1:"Complete set of Scratch lessons from scratch",videos_f2:"Watch anytime — from any device",videos_f3:"Practical projects: games, platforms & interactive stories",videos_f4:"Lifetime access with no monthly fee",
     per_month:"EGP / month",months3:"⏳ Duration: 3 months",enroll:"Enroll Now",
     why_eyebrow:"Why learn with me",why_title:"Real industry experience — not just theory",why_sub:"I teach you what I actually use to build apps used by thousands of people every day.",
