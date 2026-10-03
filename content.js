@@ -143,30 +143,94 @@ window.SITE_CONTENT = {
   }
  },
  "stats": [
-  {"value": 3, "suffix": "+", "label": {"ar": "سنوات خبرة احترافية", "en": "Years of pro experience"}},
-  {"value": 8, "suffix": "+", "label": {"ar": "تطبيقات على جوجل بلاي", "en": "Apps on Google Play"}},
-  {"value": 30, "suffix": "+", "label": {"ar": "طالب وطالبة", "en": "Students taught"}},
-  {"value": 1000, "suffix": "+", "label": {"ar": "مستخدم يومي للتطبيقات", "en": "Daily app users"}}
+  {
+   "value": 3,
+   "suffix": "+",
+   "label": {
+    "ar": "سنوات خبرة احترافية",
+    "en": "Years of pro experience"
+   }
+  },
+  {
+   "value": 8,
+   "suffix": "+",
+   "label": {
+    "ar": "تطبيقات على جوجل بلاي",
+    "en": "Apps on Google Play"
+   }
+  },
+  {
+   "value": 30,
+   "suffix": "+",
+   "label": {
+    "ar": "طالب وطالبة",
+    "en": "Students taught"
+   }
+  },
+  {
+   "value": 1000,
+   "suffix": "+",
+   "label": {
+    "ar": "مستخدم يومي للتطبيقات",
+    "en": "Daily app users"
+   }
+  }
  ],
  "courses": [
   {
    "id": "kids",
    "style": "kids",
    "icon": "🧒🚀",
-   "badge": {"ar": "الأكثر متعة 🎮", "en": "Most Fun 🎮"},
-   "tag": {"ar": "للأطفال (6–13 سنة)", "en": "For Kids (ages 6–13)"},
-   "title": {"ar": "البرمجة للأطفال", "en": "Programming for Kids"},
-   "note": {"ar": "", "en": ""},
-   "stack": {"ar": "Scratch + Python", "en": "Scratch + Python"},
+   "badge": {
+    "ar": "الأكثر متعة 🎮",
+    "en": "Most Fun 🎮"
+   },
+   "tag": {
+    "ar": "للأطفال (6–13 سنة)",
+    "en": "For Kids (ages 6–13)"
+   },
+   "title": {
+    "ar": "البرمجة للأطفال",
+    "en": "Programming for Kids"
+   },
+   "note": {
+    "ar": "",
+    "en": ""
+   },
+   "stack": {
+    "ar": "Scratch + Python",
+    "en": "Scratch + Python"
+   },
    "price": "400",
-   "priceText": {"ar": "", "en": ""},
-   "per": {"ar": "ج.م / شهريًا", "en": "EGP / month"},
-   "duration": {"ar": "⏳ مدة الدورة: 3 أشهر", "en": "⏳ Duration: 3 months"},
+   "priceText": {
+    "ar": "",
+    "en": ""
+   },
+   "per": {
+    "ar": "ج.م / شهريًا",
+    "en": "EGP / month"
+   },
+   "duration": {
+    "ar": "⏳ مدة الدورة: 3 أشهر",
+    "en": "⏳ Duration: 3 months"
+   },
    "features": [
-    {"ar": "تعلّم ممتع قائم على الألعاب", "en": "Fun, game-based learning"},
-    {"ar": "يبني الطفل ألعابًا حقيقية مثل Flappy Bird و Catch the Apple و Mario", "en": "Kids build real games like Flappy Bird, Catch the Apple & Mario"},
-    {"ar": "لا يحتاج أي خبرة سابقة", "en": "No prior experience needed"},
-    {"ar": "تنمية التفكير المنطقي والإبداع", "en": "Builds logical thinking & creativity"}
+    {
+     "ar": "تعلّم ممتع قائم على الألعاب",
+     "en": "Fun, game-based learning"
+    },
+    {
+     "ar": "يبني الطفل ألعابًا حقيقية مثل Flappy Bird و Catch the Apple و Mario",
+     "en": "Kids build real games like Flappy Bird, Catch the Apple & Mario"
+    },
+    {
+     "ar": "لا يحتاج أي خبرة سابقة",
+     "en": "No prior experience needed"
+    },
+    {
+     "ar": "تنمية التفكير المنطقي والإبداع",
+     "en": "Builds logical thinking & creativity"
+    }
    ],
    "waMessage": {
     "ar": "مرحبًا محمود، أريد الاشتراك في دورة «البرمجة للأطفال» (Scratch + Python).",
@@ -177,20 +241,56 @@ window.SITE_CONTENT = {
    "id": "adults",
    "style": "adults",
    "icon": "👨‍💻📱",
-   "badge": {"ar": "احترافي 💼", "en": "Professional 💼"},
-   "tag": {"ar": "للكبار والمبتدئين", "en": "For Adults & Beginners"},
-   "title": {"ar": "البرمجة للكبار", "en": "Programming for Adults"},
-   "note": {"ar": "", "en": ""},
-   "stack": {"ar": "Kotlin + Android Development", "en": "Kotlin + Android Development"},
+   "badge": {
+    "ar": "احترافي 💼",
+    "en": "Professional 💼"
+   },
+   "tag": {
+    "ar": "للكبار والمبتدئين",
+    "en": "For Adults & Beginners"
+   },
+   "title": {
+    "ar": "البرمجة للكبار",
+    "en": "Programming for Adults"
+   },
+   "note": {
+    "ar": "",
+    "en": ""
+   },
+   "stack": {
+    "ar": "Kotlin + Android Development",
+    "en": "Kotlin + Android Development"
+   },
    "price": "500",
-   "priceText": {"ar": "", "en": ""},
-   "per": {"ar": "ج.م / شهريًا", "en": "EGP / month"},
-   "duration": {"ar": "⏳ مدة الدورة: 3 أشهر", "en": "⏳ Duration: 3 months"},
+   "priceText": {
+    "ar": "",
+    "en": ""
+   },
+   "per": {
+    "ar": "ج.م / شهريًا",
+    "en": "EGP / month"
+   },
+   "duration": {
+    "ar": "⏳ مدة الدورة: 3 أشهر",
+    "en": "⏳ Duration: 3 months"
+   },
    "features": [
-    {"ar": "من أساسيات كوتلن إلى بناء ونشر تطبيق أندرويد حقيقي", "en": "From Kotlin basics to building & publishing a real Android app"},
-    {"ar": "مشاريع عملية بأسلوب احترافي", "en": "Hands-on, professional-style projects"},
-    {"ar": "أدوات حديثة مثل Jetpack Compose و XML ومكتبات Jetpack الحديثة", "en": "Modern tools like Jetpack Compose, XML & Jetpack libraries"},
-    {"ar": "إرشاد مبني على خبرة صناعة حقيقية", "en": "Mentoring grounded in real industry experience"}
+    {
+     "ar": "من أساسيات كوتلن إلى بناء ونشر تطبيق أندرويد حقيقي",
+     "en": "From Kotlin basics to building & publishing a real Android app"
+    },
+    {
+     "ar": "مشاريع عملية بأسلوب احترافي",
+     "en": "Hands-on, professional-style projects"
+    },
+    {
+     "ar": "أدوات حديثة مثل Jetpack Compose و XML ومكتبات Jetpack الحديثة",
+     "en": "Modern tools like Jetpack Compose, XML & Jetpack libraries"
+    },
+    {
+     "ar": "إرشاد مبني على خبرة صناعة حقيقية",
+     "en": "Mentoring grounded in real industry experience"
+    }
    ],
    "waMessage": {
     "ar": "مرحبًا محمود، أريد الاشتراك في دورة «البرمجة للكبار» (Kotlin + Android).",
@@ -201,20 +301,56 @@ window.SITE_CONTENT = {
    "id": "school",
    "style": "school",
    "icon": "🎓📚",
-   "badge": {"ar": "", "en": ""},
-   "tag": {"ar": "طلاب الثانوية", "en": "Secondary Students"},
-   "title": {"ar": "مادة البرمجة للثانوية", "en": "Secondary School Programming"},
-   "note": {"ar": "", "en": ""},
-   "stack": {"ar": "دروس خصوصية لمنهج الثانوية", "en": "Private tutoring for the curriculum"},
+   "badge": {
+    "ar": "",
+    "en": ""
+   },
+   "tag": {
+    "ar": "طلاب الثانوية",
+    "en": "Secondary Students"
+   },
+   "title": {
+    "ar": "مادة البرمجة للثانوية",
+    "en": "Secondary School Programming"
+   },
+   "note": {
+    "ar": "",
+    "en": ""
+   },
+   "stack": {
+    "ar": "دروس خصوصية لمنهج الثانوية",
+    "en": "Private tutoring for the curriculum"
+   },
    "price": "",
-   "priceText": {"ar": "تواصل لمعرفة السعر", "en": "Contact for details"},
-   "per": {"ar": "", "en": ""},
-   "duration": {"ar": "⏳ حسب احتياج الطالب", "en": "⏳ Based on the student's needs"},
+   "priceText": {
+    "ar": "تواصل لمعرفة السعر",
+    "en": "Contact for details"
+   },
+   "per": {
+    "ar": "",
+    "en": ""
+   },
+   "duration": {
+    "ar": "⏳ حسب احتياج الطالب",
+    "en": "⏳ Based on the student's needs"
+   },
    "features": [
-    {"ar": "دعم مركّز على الامتحانات", "en": "Exam-focused support"},
-    {"ar": "فهم عملي للمنهج وليس حفظًا فقط", "en": "Practical understanding, not just memorizing"},
-    {"ar": "متابعة فردية وحل تمارين", "en": "One-on-one follow-up & exercises"},
-    {"ar": "رفع الدرجات والثقة في المادة", "en": "Higher grades & confidence in the subject"}
+    {
+     "ar": "دعم مركّز على الامتحانات",
+     "en": "Exam-focused support"
+    },
+    {
+     "ar": "فهم عملي للمنهج وليس حفظًا فقط",
+     "en": "Practical understanding, not just memorizing"
+    },
+    {
+     "ar": "متابعة فردية وحل تمارين",
+     "en": "One-on-one follow-up & exercises"
+    },
+    {
+     "ar": "رفع الدرجات والثقة في المادة",
+     "en": "Higher grades & confidence in the subject"
+    }
    ],
    "waMessage": {
     "ar": "مرحبًا محمود، أريد الاشتراك في دروس «مادة البرمجة للثانوية».",
@@ -225,20 +361,56 @@ window.SITE_CONTENT = {
    "id": "videos",
    "style": "videos",
    "icon": "🐱🎬",
-   "badge": {"ar": "", "en": ""},
-   "tag": {"ar": "فيديوهات مسجّلة مسبقًا", "en": "Pre-recorded Videos"},
-   "title": {"ar": "دروس سكراتش مسجّلة", "en": "Recorded Scratch Lessons"},
-   "note": {"ar": "🎥 أكثر من 10 فيديوهات مسجّلة", "en": "10+ recorded videos included"},
-   "stack": {"ar": "Scratch — فيديوهات مسجّلة", "en": "Scratch — Recorded Videos"},
+   "badge": {
+    "ar": "",
+    "en": ""
+   },
+   "tag": {
+    "ar": "فيديوهات مسجّلة مسبقًا",
+    "en": "Pre-recorded Videos"
+   },
+   "title": {
+    "ar": "دروس سكراتش مسجّلة",
+    "en": "Recorded Scratch Lessons"
+   },
+   "note": {
+    "ar": "🎥 أكثر من 10 فيديوهات مسجّلة",
+    "en": "10+ recorded videos included"
+   },
+   "stack": {
+    "ar": "Scratch — فيديوهات مسجّلة",
+    "en": "Scratch — Recorded Videos"
+   },
    "price": "250",
-   "priceText": {"ar": "", "en": ""},
-   "per": {"ar": "ج.م / مرّة واحدة", "en": "EGP / one-time"},
-   "duration": {"ar": "⏳ اشتراك مدى الحياة", "en": "Lifetime access"},
+   "priceText": {
+    "ar": "",
+    "en": ""
+   },
+   "per": {
+    "ar": "ج.م / مرّة واحدة",
+    "en": "EGP / one-time"
+   },
+   "duration": {
+    "ar": "⏳ اشتراك مدى الحياة",
+    "en": "Lifetime access"
+   },
    "features": [
-    {"ar": "مجموعة كاملة من دروس سكراتش من الصفر", "en": "Complete set of Scratch lessons from scratch"},
-    {"ar": "شاهد في أي وقت — من أي جهاز", "en": "Watch anytime — from any device"},
-    {"ar": "مشاريع عملية: ألعاب ومنصّات وقصص تفاعلية", "en": "Practical projects: games, platforms & interactive stories"},
-    {"ar": "وصول مدى الحياة بدون اشتراك شهري", "en": "Lifetime access with no monthly fee"}
+    {
+     "ar": "مجموعة كاملة من دروس سكراتش من الصفر",
+     "en": "Complete set of Scratch lessons from scratch"
+    },
+    {
+     "ar": "شاهد في أي وقت — من أي جهاز",
+     "en": "Watch anytime — from any device"
+    },
+    {
+     "ar": "مشاريع عملية: ألعاب ومنصّات وقصص تفاعلية",
+     "en": "Practical projects: games, platforms & interactive stories"
+    },
+    {
+     "ar": "وصول مدى الحياة بدون اشتراك شهري",
+     "en": "Lifetime access with no monthly fee"
+    }
    ],
    "waMessage": {
     "ar": "مرحبًا محمود، أريد الاشتراك في «دروس سكراتش المسجّلة».",
@@ -249,132 +421,321 @@ window.SITE_CONTENT = {
  "why": [
   {
    "icon": "🏭",
-   "title": {"ar": "من قلب السوق", "en": "Straight from the field"},
-   "desc": {"ar": "أكثر من 3 سنوات كمطوّر أندرويد محترف في Awamer Alshabaka (AAIT) و Alexon Incorp.", "en": "3+ years as a professional Android developer at Awamer Alshabaka (AAIT) and Alexon Incorp."}
+   "title": {
+    "ar": "من قلب السوق",
+    "en": "Straight from the field"
+   },
+   "desc": {
+    "ar": "أكثر من 3 سنوات كمطوّر أندرويد محترف في Awamer Alshabaka (AAIT) و Alexon Incorp.",
+    "en": "3+ years as a professional Android developer at Awamer Alshabaka (AAIT) and Alexon Incorp."
+   }
   },
   {
    "icon": "📲",
-   "title": {"ar": "تطبيقات حقيقية", "en": "Real apps"},
-   "desc": {"ar": "شحنت أكثر من 8 تطبيقات على جوجل بلاي: تجارة إلكترونية، نقل، طب عن بُعد، وخدمات عند الطلب.", "en": "Shipped 8+ apps on Google Play: e-commerce, ride-hailing, telemedicine, and on-demand services."}
+   "title": {
+    "ar": "تطبيقات حقيقية",
+    "en": "Real apps"
+   },
+   "desc": {
+    "ar": "شحنت أكثر من 8 تطبيقات على جوجل بلاي: تجارة إلكترونية، نقل، طب عن بُعد، وخدمات عند الطلب.",
+    "en": "Shipped 8+ apps on Google Play: e-commerce, ride-hailing, telemedicine, and on-demand services."
+   }
   },
   {
    "icon": "🧩",
-   "title": {"ar": "تعليم عملي", "en": "Hands-on teaching"},
-   "desc": {"ar": "كل درس يقودك لبناء شيء ملموس — لأن البرمجة تُتعلّم بالممارسة لا بالحفظ.", "en": "Every lesson leads you to build something real — because coding is learned by doing, not memorizing."}
+   "title": {
+    "ar": "تعليم عملي",
+    "en": "Hands-on teaching"
+   },
+   "desc": {
+    "ar": "كل درس يقودك لبناء شيء ملموس — لأن البرمجة تُتعلّم بالممارسة لا بالحفظ.",
+    "en": "Every lesson leads you to build something real — because coding is learned by doing, not memorizing."
+   }
   }
  ],
  "projects": [
   {
    "icon": "🐤",
-   "title": {"ar": "لعبة Flappy Bird", "en": "Flappy Bird Game"},
-   "desc": {"ar": "يبني الطفل لعبته الأولى خطوة بخطوة في سكراتش ويلعبها مع أصدقائه.", "en": "Kids build their first game step by step in Scratch and play it with friends."},
-   "tag": {"ar": "Scratch · أطفال", "en": "Scratch · Kids"}
+   "title": {
+    "ar": "لعبة Flappy Bird",
+    "en": "Flappy Bird Game"
+   },
+   "desc": {
+    "ar": "يبني الطفل لعبته الأولى خطوة بخطوة في سكراتش ويلعبها مع أصدقائه.",
+    "en": "Kids build their first game step by step in Scratch and play it with friends."
+   },
+   "tag": {
+    "ar": "Scratch · أطفال",
+    "en": "Scratch · Kids"
+   }
   },
   {
    "icon": "🍎",
-   "title": {"ar": "لعبة Catch the Apple", "en": "Catch the Apple Game"},
-   "desc": {"ar": "منطق برمجي ممتع: حركة، نقاط، ومستويات — أساسيات التفكير البرمجي.", "en": "Fun coding logic: movement, scoring and levels — the basics of computational thinking."},
-   "tag": {"ar": "Python · أطفال", "en": "Python · Kids"}
+   "title": {
+    "ar": "لعبة Catch the Apple",
+    "en": "Catch the Apple Game"
+   },
+   "desc": {
+    "ar": "منطق برمجي ممتع: حركة، نقاط، ومستويات — أساسيات التفكير البرمجي.",
+    "en": "Fun coding logic: movement, scoring and levels — the basics of computational thinking."
+   },
+   "tag": {
+    "ar": "Python · أطفال",
+    "en": "Python · Kids"
+   }
   },
   {
    "icon": "🍄",
-   "title": {"ar": "لعبة Mario", "en": "Mario Game"},
-   "desc": {"ar": "يبني الطفل لعبة ماريو الشهيرة بالقفز والعقبات والمستويات في سكراتش.", "en": "Kids build the famous Mario game with jumping, obstacles and levels in Scratch."},
-   "tag": {"ar": "Scratch · أطفال", "en": "Scratch · Kids"}
+   "title": {
+    "ar": "لعبة Mario",
+    "en": "Mario Game"
+   },
+   "desc": {
+    "ar": "يبني الطفل لعبة ماريو الشهيرة بالقفز والعقبات والمستويات في سكراتش.",
+    "en": "Kids build the famous Mario game with jumping, obstacles and levels in Scratch."
+   },
+   "tag": {
+    "ar": "Scratch · أطفال",
+    "en": "Scratch · Kids"
+   }
   },
   {
    "icon": "👾",
-   "title": {"ar": "لعبة Shoot the Enemy", "en": "Shoot the Enemy Game"},
-   "desc": {"ar": "لعبة إطلاق نار ممتعة: تصويب، أعداء، ونقاط — يتعلّم الطفل التحكم والمنطق.", "en": "A fun shooter: aiming, enemies and scoring — kids learn control and logic."},
-   "tag": {"ar": "Scratch · أطفال", "en": "Scratch · Kids"}
+   "title": {
+    "ar": "لعبة Shoot the Enemy",
+    "en": "Shoot the Enemy Game"
+   },
+   "desc": {
+    "ar": "لعبة إطلاق نار ممتعة: تصويب، أعداء، ونقاط — يتعلّم الطفل التحكم والمنطق.",
+    "en": "A fun shooter: aiming, enemies and scoring — kids learn control and logic."
+   },
+   "tag": {
+    "ar": "Scratch · أطفال",
+    "en": "Scratch · Kids"
+   }
   },
   {
    "icon": "🧮",
-   "title": {"ar": "تطبيق آلة حاسبة", "en": "Calculator App"},
-   "desc": {"ar": "أول تطبيق بسيط وسهل: أزرار وعمليات حسابية — بداية مثالية لفهم بناء الواجهات.", "en": "A simple, easy first app: buttons and arithmetic — the perfect start to understanding UI building."},
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"}
+   "title": {
+    "ar": "تطبيق آلة حاسبة",
+    "en": "Calculator App"
+   },
+   "desc": {
+    "ar": "أول تطبيق بسيط وسهل: أزرار وعمليات حسابية — بداية مثالية لفهم بناء الواجهات.",
+    "en": "A simple, easy first app: buttons and arithmetic — the perfect start to understanding UI building."
+   },
+   "tag": {
+    "ar": "Kotlin · كبار",
+    "en": "Kotlin · Adults"
+   }
   },
   {
    "icon": "📱",
-   "title": {"ar": "تطبيق Family App", "en": "Family App"},
-   "desc": {"ar": "من أول شاشة حتى استخدامه على هاتفك، باستخدام كوتلن وأحدث أدوات تطوير الهاتف.", "en": "From the first screen to running it on your own phone, using Kotlin & Jetpack Compose."},
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"}
-  },
-  {
-   "icon": "🛒",
-   "title": {"ar": "تطبيق متجر إلكتروني", "en": "E-commerce App"},
-   "desc": {"ar": "واجهة منتجات، سلة شراء، وتسجيل دخول — تطبيق تجارة إلكترونية حقيقي بلغة كوتلن.", "en": "Product list, shopping cart and login — a real e-commerce app built in Kotlin."},
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"}
+   "title": {
+    "ar": "تطبيق Family App",
+    "en": "Family App"
+   },
+   "desc": {
+    "ar": "من أول شاشة حتى استخدامه على هاتفك، باستخدام كوتلن وأحدث أدوات تطوير الهاتف.",
+    "en": "From the first screen to running it on your own phone, using Kotlin & Jetpack Compose."
+   },
+   "tag": {
+    "ar": "Kotlin · كبار",
+    "en": "Kotlin · Adults"
+   }
   },
   {
    "icon": "🌦️",
-   "title": {"ar": "تطبيق الطقس", "en": "Weather App"},
-   "desc": {"ar": "يتصل بـ API حقيقي لعرض حالة الطقس — يتعلّم الطالب الشبكات وعرض البيانات.", "en": "Connects to a real API to show live weather — students learn networking and data display."},
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"}
+   "title": {
+    "ar": "تطبيق الطقس",
+    "en": "Weather App"
+   },
+   "desc": {
+    "ar": "يتصل بـ API حقيقي لعرض حالة الطقس — يتعلّم الطالب الشبكات وعرض البيانات.",
+    "en": "Connects to a real API to show live weather — students learn networking and data display."
+   },
+   "tag": {
+    "ar": "Kotlin · كبار",
+    "en": "Kotlin · Adults"
+   }
   },
   {
    "icon": "✅",
-   "title": {"ar": "تطبيق المهام والملاحظات", "en": "Tasks & Notes App"},
-   "desc": {"ar": "حفظ المهام محليًا على الهاتف مع إضافة وحذف وتعديل — أساسيات قواعد البيانات.", "en": "Save tasks locally on the phone with add, edit and delete — the basics of databases."},
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"}
+   "title": {
+    "ar": "تطبيق المهام والملاحظات",
+    "en": "Tasks & Notes App"
+   },
+   "desc": {
+    "ar": "حفظ المهام محليًا على الهاتف مع إضافة وحذف وتعديل — أساسيات قواعد البيانات.",
+    "en": "Save tasks locally on the phone with add, edit and delete — the basics of databases."
+   },
+   "tag": {
+    "ar": "Kotlin · كبار",
+    "en": "Kotlin · Adults"
+   }
   }
  ],
  "gallery": [
   {
    "image": "gallery/scratch-platformer.png",
    "icon": "🎮",
-   "tag": {"ar": "Scratch · أطفال", "en": "Scratch · Kids"},
-   "title": {"ar": "لعبة Mario", "en": "Mario Game"},
-   "desc": {"ar": "لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.", "en": "A game with score, lives, enemies, coins and platforms — built by students in Scratch."}
+   "tag": {
+    "ar": "Scratch · أطفال",
+    "en": "Scratch · Kids"
+   },
+   "title": {
+    "ar": "لعبة Mario",
+    "en": "Mario Game"
+   },
+   "desc": {
+    "ar": "لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.",
+    "en": "A game with score, lives, enemies, coins and platforms — built by students in Scratch."
+   }
   },
   {
    "image": "gallery/task.png",
    "icon": "🎮",
-   "tag": {"ar": "Scratch · أطفال", "en": "Scratch · Kids"},
-   "title": {"ar": "لعبة عالم البحار", "en": "Sea World Game"},
-   "desc": {"ar": "لعبة بنقاط وأشكال ولمس للقرش — من تنفيذ الطلاب في سكراتش.", "en": "A game with score, shapes and shark-touch detection — built by students in Scratch."}
+   "tag": {
+    "ar": "Scratch · أطفال",
+    "en": "Scratch · Kids"
+   },
+   "title": {
+    "ar": "لعبة عالم البحار",
+    "en": "Sea World Game"
+   },
+   "desc": {
+    "ar": "لعبة بنقاط وأشكال ولمس للقرش — من تنفيذ الطلاب في سكراتش.",
+    "en": "A game with score, shapes and shark-touch detection — built by students in Scratch."
+   }
   },
   {
    "image": "gallery/family-app.png",
    "icon": "📱",
-   "tag": {"ar": "Kotlin · كبار", "en": "Kotlin · Adults"},
-   "title": {"ar": "تطبيق أفراد العائلة", "en": "Family Members App"},
-   "desc": {"ar": "تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.", "en": "An Android app to manage family members with an Arabic UI — built with Kotlin."}
+   "tag": {
+    "ar": "Kotlin · كبار",
+    "en": "Kotlin · Adults"
+   },
+   "title": {
+    "ar": "تطبيق أفراد العائلة",
+    "en": "Family Members App"
+   },
+   "desc": {
+    "ar": "تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.",
+    "en": "An Android app to manage family members with an Arabic UI — built with Kotlin."
+   }
   }
  ],
  "reviews": [
-  {"text": "السيشن كانت ممتازة وممتعة والشرح كان واضح جدًا وسهل، وخلتني أحب البرمجة أكتر. شكرًا يا مستر ❤️", "name": "محمد الحطاب", "age": "16 سنة"},
-  {"text": "ابني كان مبسوط جدا من السيشن وقالي فيها معلومات كتير حلوة اول مرة اعرفها والحصة كانت حلوة اوي", "name": "حنين أحمد", "age": "14 سنة"},
-  {"text": "بسم الله ماشاء الله، شرح المستر فوق الممتاز وكمان بيسهّل الشرح علينا. ربنا يجعله في ميزان حسناته ويبارك فيه.", "name": "رويدا", "age": "14 سنة"},
-  {"text": "جميلة جدًا وممتعة، بارك الله فيكم جميعًا يا رب. نرجو منكم المزيد بإذن الله.", "name": "محمد ياسر أبو الفتوح", "age": "13 سنة"},
-  {"text": "عايزة أشكر المستر على مجهوده معانا، وجزاه الله كل خير.", "name": "رناد أحمد حمدي", "age": "13 سنة"},
-  {"text": "حصة رائعة وجميلة جدًا.", "name": "سفيان محمد حسن", "age": "13 سنة"},
-  {"text": "جميل أوي ماشاء الله 🌸", "name": "ريتال وسام", "age": "10 سنوات"},
-  {"text": "جزاه الله خيرًا، حلو أوي.", "name": "نورين وسام", "age": "11 سنة"},
-  {"text": "جميلة جدًا، بسم الله ماشاء الله ♥️♥️♥️", "name": "رودينا إيهاب", "age": "10 سنوات"},
-  {"text": "جيدة جدًا وجميلة.", "name": "محمد حجازي", "age": "9 سنوات"}
+  {
+   "text": "السيشن كانت ممتازة وممتعة والشرح كان واضح جدًا وسهل، وخلتني أحب البرمجة أكتر. شكرًا يا مستر ❤️",
+   "name": "محمد الحطاب",
+   "age": "16 سنة"
+  },
+  {
+   "text": "ابني كان مبسوط جدا من السيشن وقالي فيها معلومات كتير حلوة اول مرة اعرفها والحصة كانت حلوة اوي",
+   "name": "حنين أحمد",
+   "age": "14 سنة"
+  },
+  {
+   "text": "بسم الله ماشاء الله، شرح المستر فوق الممتاز وكمان بيسهّل الشرح علينا. ربنا يجعله في ميزان حسناته ويبارك فيه.",
+   "name": "رويدا",
+   "age": "14 سنة"
+  },
+  {
+   "text": "جميلة جدًا وممتعة، بارك الله فيكم جميعًا يا رب. نرجو منكم المزيد بإذن الله.",
+   "name": "محمد ياسر أبو الفتوح",
+   "age": "13 سنة"
+  },
+  {
+   "text": "عايزة أشكر المستر على مجهوده معانا، وجزاه الله كل خير.",
+   "name": "رناد أحمد حمدي",
+   "age": "13 سنة"
+  },
+  {
+   "text": "حصة رائعة وجميلة جدًا.",
+   "name": "سفيان محمد حسن",
+   "age": "13 سنة"
+  },
+  {
+   "text": "جميل أوي ماشاء الله 🌸",
+   "name": "ريتال وسام",
+   "age": "10 سنوات"
+  },
+  {
+   "text": "جزاه الله خيرًا، حلو أوي.",
+   "name": "نورين وسام",
+   "age": "11 سنة"
+  },
+  {
+   "text": "جميلة جدًا، بسم الله ماشاء الله ♥️♥️♥️",
+   "name": "رودينا إيهاب",
+   "age": "10 سنوات"
+  },
+  {
+   "text": "جيدة جدًا وجميلة.",
+   "name": "محمد حجازي",
+   "age": "9 سنوات"
+  }
  ],
- "skills": ["Kotlin", "Java", "Python", "Jetpack Compose", "XML", "Clean Architecture", "MVVM / MVI"],
+ "skills": [
+  "Kotlin",
+  "Java",
+  "Python",
+  "Jetpack Compose",
+  "XML",
+  "Clean Architecture",
+  "MVVM / MVI"
+ ],
  "faq": [
   {
-   "q": {"ar": "هل تحتاج الدورة خبرة سابقة؟", "en": "Does the course need prior experience?"},
-   "a": {"ar": "لا. كل المسارات تبدأ من الصفر، سواء للأطفال أو الكبار، ونتدرّج خطوة بخطوة.", "en": "No. Every track starts from zero — for kids and adults alike — and we progress step by step."}
+   "q": {
+    "ar": "هل تحتاج الدورة خبرة سابقة؟",
+    "en": "Does the course need prior experience?"
+   },
+   "a": {
+    "ar": "لا. كل المسارات تبدأ من الصفر، سواء للأطفال أو الكبار، ونتدرّج خطوة بخطوة.",
+    "en": "No. Every track starts from zero — for kids and adults alike — and we progress step by step."
+   }
   },
   {
-   "q": {"ar": "هل الدروس أونلاين أم حضوري؟", "en": "Are lessons online or in person?"},
-   "a": {"ar": "يمكن ترتيب الدروس أونلاين بالكامل. تواصل معي عبر واتساب لتحديد الأنسب لك.", "en": "Lessons can be arranged fully online. Message me on WhatsApp to find what suits you best."}
+   "q": {
+    "ar": "هل الدروس أونلاين أم حضوري؟",
+    "en": "Are lessons online or in person?"
+   },
+   "a": {
+    "ar": "يمكن ترتيب الدروس أونلاين بالكامل. تواصل معي عبر واتساب لتحديد الأنسب لك.",
+    "en": "Lessons can be arranged fully online. Message me on WhatsApp to find what suits you best."
+   }
   },
   {
-   "q": {"ar": "ما هي طرق الدفع؟", "en": "What are the payment methods?"},
-   "a": {"ar": "الدفع عبر فودافون كاش أو إنستا باي على الرقم 01093729626.", "en": "Payment via Vodafone Cash or InstaPay to the number 01093729626."}
+   "q": {
+    "ar": "ما هي طرق الدفع؟",
+    "en": "What are the payment methods?"
+   },
+   "a": {
+    "ar": "الدفع عبر فودافون كاش أو إنستا باي على الرقم 01093729626.",
+    "en": "Payment via Vodafone Cash or InstaPay to the number 01093729626."
+   }
   },
   {
-   "q": {"ar": "كم مدة الدورة؟", "en": "How long is the course?"},
-   "a": {"ar": "دورتا الأطفال والكبار مدتهما 3 أشهر لكل منهما. أما دعم الثانوية فيكون حسب احتياج الطالب.", "en": "The kids and adults courses are 3 months each. Secondary-school support is based on the student's needs."}
+   "q": {
+    "ar": "كم مدة الدورة؟",
+    "en": "How long is the course?"
+   },
+   "a": {
+    "ar": "دورتا الأطفال والكبار مدتهما 3 أشهر لكل منهما. أما دعم الثانوية فيكون حسب احتياج الطالب.",
+    "en": "The kids and adults courses are 3 months each. Secondary-school support is based on the student's needs."
+   }
   },
   {
-   "q": {"ar": "ماذا سيبني الطالب فعليًا؟", "en": "What will the student actually build?"},
-   "a": {"ar": "الأطفال يبنون ألعابًا حقيقية، والكبار يبنون وينشرون تطبيق أندرويد كامل على جوجل بلاي.", "en": "Kids build real games, and adults build & publish a complete Android app on Google Play."}
+   "q": {
+    "ar": "ماذا سيبني الطالب فعليًا؟",
+    "en": "What will the student actually build?"
+   },
+   "a": {
+    "ar": "الأطفال يبنون ألعابًا حقيقية، والكبار يبنون وينشرون تطبيق أندرويد كامل على جوجل بلاي.",
+    "en": "Kids build real games, and adults build & publish a complete Android app on Google Play."
+   }
   }
  ]
 };
