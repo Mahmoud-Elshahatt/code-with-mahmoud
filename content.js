@@ -12,8 +12,8 @@ window.SITE_CONTENT = {
  },
  "waMessages": {
   "general": {
-   "ar": "مرحبًا محمود، أريد حجز حصة تجريبية في البرمجة.",
-   "en": "Hi Mahmoud, I'd like to book a free programming trial lesson."
+   "ar": "مرحبًا محمود، أريد حجز أول حصة في البرمجة.",
+   "en": "Hi Mahmoud, I'd like to book my first programming lesson."
   },
   "contact": {
    "ar": "مرحبًا محمود، لديّ استفسار عن دورات البرمجة.",
@@ -95,7 +95,7 @@ window.SITE_CONTENT = {
    "hero_badge": "🚀 Learn coding from a professional developer",
    "hero_title": "Learn to code from zero to <span class=\"hl\">real mastery</span>",
    "hero_lead": "Programming lessons for kids and adults in Egypt — from fun Scratch & Python games to building a real Android app in Kotlin. Hands-on teaching from a developer who shipped 8+ apps on Google Play.",
-   "hero_cta1": "Book a Free Trial",
+   "hero_cta1": "Book Your First Lesson Now",
    "hero_cta2": "Browse Courses",
    "hero_b1": "✅ No experience needed",
    "hero_b2": "🎯 Real projects",
