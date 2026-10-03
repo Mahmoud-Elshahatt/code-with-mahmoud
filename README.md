@@ -9,42 +9,42 @@ teaching services in Egypt: kids (Scratch + Python), adults (Kotlin + Android), 
 
 ## Files / الملفات
 
-- `index.html` — the entire website (HTML + CSS + JavaScript, all in one file).
-- `instructor.jpg` — your profile photo. If missing, the page falls back to your initials.
-- `README.md` — this file.
+- `index.html` — the website layout, styles and scripts.
+- `content.js` — **all the site content** (courses, prices, reviews, gallery, FAQ, texts, phone numbers).
+- `admin.html` — the dashboard for editing `content.js` from the browser.
+- `instructor.png` — your profile photo. If missing, the page falls back to your initials.
+- `gallery/` — student work screenshots.
 
-Everything else (fonts, icons, the Vodafone & InstaPay logos, the favicon) is built into `index.html`.
+Fonts, icons, the Vodafone & InstaPay logos and the favicon are built into `index.html`.
 Only Google Fonts is loaded from the internet.
 
 ---
+
+## Dashboard / لوحة التحكم
+
+Open `https://mahmoud-elshahatt.github.io/code-with-mahmoud/admin.html` (works on a phone too).
+
+1. Create a GitHub **fine-grained token** once: GitHub → Settings → Developer settings →
+   Fine-grained tokens → *Only select repositories* → this repo → *Contents: Read and write*.
+2. Paste the token into the dashboard and press **Connect**. It is stored only in that browser.
+3. Edit courses, prices, reviews, gallery, FAQ, texts or contact numbers.
+4. **Preview** shows your unsaved changes on the real page. **Save & publish** commits `content.js`
+   to GitHub; the live site updates in a minute or two (visitors may see the old version for up to 10 minutes).
+
+Every field has an Arabic and an English box; if English is left empty the Arabic text is shown.
+
+---
+
 ## Features / المميزات
 
 - **Bilingual toggle** (🌐): switches the whole page between Arabic (RTL) and English (LTR).
 - **Dark / Light theme** (🌙 / ☀️): remembers your choice and respects your system setting.
-- **3 course/pricing cards** with WhatsApp "Enroll Now" buttons that open a pre-filled message
+- **Course/pricing cards** with WhatsApp "Enroll Now" buttons that open a pre-filled message
   naming the chosen course.
-- **9 student projects** (4 Scratch/kids games + 5 Kotlin/Android apps).
+- **Student projects** and a work gallery with a lightbox.
 - **Animated** hero, scroll-reveal sections, animated counters, hover effects.
 - **Payment section** with Vodafone Cash & InstaPay logos and one-tap **copy** buttons for the number.
 - Mobile-first and fully responsive.
-
----
-
-## Customize / التعديل
-
-Open `index.html` in any text editor and change:
-
-| What | Where to look |
-|------|----------------|
-| Prices | the course cards (search `650`, `800`) |
-| Phone / WhatsApp number | search `201093729626` and `01093729626` |
-| Email | search `mahmoudelshahatt1@gmail.com` |
-| LinkedIn / GitHub / Portfolio links | search `href="#"` (3 placeholders to replace) |
-| All Arabic & English text | the `I18N` dictionary near the bottom of the file |
-| Brand colors | the `:root { ... }` CSS variables at the top |
-
-> **Important:** Replace the three `href="#"` placeholder links (LinkedIn, GitHub, Portfolio)
-> with your real URLs.
 
 ---
 

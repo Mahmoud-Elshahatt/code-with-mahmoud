@@ -181,6 +181,9 @@
   .feat li::before{content:"✓";color:#16a34a;font-weight:900;flex:none}
   .card .btn{width:100%;justify-content:center}
   .popular{position:absolute;inset-inline-end:18px;top:18px;background:var(--grad-kid);color:#fff;font-weight:800;font-size:.72rem;padding:5px 12px;border-radius:999px}
+  .card.adults .popular{background:var(--grad-pro)}
+  .card.videos .popular{background:var(--grad-videos)}
+  .card.school .popular{background:linear-gradient(135deg,#16a34a,#22c1c3)}
 
   /* ---------- WHY ---------- */
   .why{background:#fff}
@@ -483,12 +486,7 @@
 
 <!-- STATS -->
 <section class="stats" style="padding:48px 0">
-  <div class="wrap stats-grid">
-    <div class="stat"><div class="num" data-count="3" data-suffix="+">0</div><div class="lbl" data-i18n="stat1">سنوات خبرة احترافية</div></div>
-    <div class="stat"><div class="num" data-count="8" data-suffix="+">0</div><div class="lbl" data-i18n="stat2">تطبيقات على جوجل بلاي</div></div>
-    <div class="stat"><div class="num" data-count="30" data-suffix="+">0</div><div class="lbl" data-i18n="stat3">طالب وطالبة</div></div>
-    <div class="stat"><div class="num" data-count="1000" data-suffix="+">0</div><div class="lbl" data-i18n="stat4">مستخدم يومي للتطبيقات</div></div>
-  </div>
+  <div class="wrap stats-grid" id="statsGrid"></div>
 </section>
 
 <!-- COURSES -->
@@ -497,80 +495,7 @@
     <span class="eyebrow reveal" data-i18n="courses_eyebrow">الدورات والأسعار</span>
     <h2 class="sec-title reveal" data-i18n="courses_title">اختر المسار المناسب لك</h2>
     <p class="sec-sub reveal" data-i18n="courses_sub">ثلاثة مسارات مصمّمة بعناية — للأطفال، للكبار، ولطلاب الثانوية. اشترك مباشرة عبر واتساب.</p>
-    <div class="course-grid">
-
-      <!-- KIDS -->
-      <div class="card kids reveal">
-        <span class="popular" data-i18n="badge_fun">الأكثر متعة 🎮</span>
-        <span class="tag" data-i18n="kids_tag">للأطفال (6–13 سنة)</span>
-        <div class="ico">🧒🚀</div>
-        <h3 data-i18n="kids_title">البرمجة للأطفال</h3>
-        <div class="stack" data-i18n="kids_stack">Scratch + Python</div>
-        <div class="price"><span class="amt">400</span><span class="per" data-i18n="per_month">ج.م / شهريًا</span></div>
-        <div class="duration" data-i18n="months3">⏳ مدة الدورة: 3 أشهر</div>
-        <ul class="feat">
-          <li data-i18n="kids_f1">تعلّم ممتع قائم على الألعاب</li>
-          <li data-i18n="kids_f2">يبني الطفل ألعابًا حقيقية مثل Flappy Bird و Catch the Apple و Mario</li>
-          <li data-i18n="kids_f3">لا يحتاج أي خبرة سابقة</li>
-          <li data-i18n="kids_f4">تنمية التفكير المنطقي والإبداع</li>
-        </ul>
-        <a class="btn btn-wa enroll" data-course="kids" target="_blank" rel="noopener" data-i18n="enroll">اشترك الآن</a>
-      </div>
-
-      <!-- ADULTS -->
-      <div class="card adults reveal">
-        <span class="popular" style="background:var(--grad-pro)" data-i18n="badge_pro">احترافي 💼</span>
-        <span class="tag" data-i18n="adults_tag">للكبار والمبتدئين</span>
-        <div class="ico">👨‍💻📱</div>
-        <h3 data-i18n="adults_title">البرمجة للكبار</h3>
-        <div class="stack" data-i18n="adults_stack">Kotlin + Android Development</div>
-        <div class="price"><span class="amt">500</span><span class="per" data-i18n="per_month">ج.م / شهريًا</span></div>
-        <div class="duration" data-i18n="months3">⏳ مدة الدورة: 3 أشهر</div>
-        <ul class="feat">
-          <li data-i18n="adults_f1">من أساسيات كوتلن إلى بناء ونشر تطبيق أندرويد حقيقي</li>
-          <li data-i18n="adults_f2">مشاريع عملية بأسلوب احترافي</li>
-          <li data-i18n="adults_f3">أدوات حديثة مثل Jetpack Compose و XML ومكتبات Jetpack الحديثة</li>
-          <li data-i18n="adults_f4">إرشاد مبني على خبرة صناعة حقيقية</li>
-        </ul>
-        <a class="btn btn-wa enroll" data-course="adults" target="_blank" rel="noopener" data-i18n="enroll">اشترك الآن</a>
-      </div>
-
-      <!-- SCHOOL -->
-      <div class="card school reveal">
-        <span class="tag" data-i18n="school_tag">طلاب الثانوية</span>
-        <div class="ico">🎓📚</div>
-        <h3 data-i18n="school_title">مادة البرمجة للثانوية</h3>
-        <div class="stack" data-i18n="school_stack">دروس خصوصية لمنهج الثانوية</div>
-        <div class="price"><span class="amt" style="font-size:1.5rem" data-i18n="contact_price">تواصل لمعرفة السعر</span></div>
-        <div class="duration" data-i18n="school_dur">⏳ حسب احتياج الطالب</div>
-        <ul class="feat">
-          <li data-i18n="school_f1">دعم مركّز على الامتحانات</li>
-          <li data-i18n="school_f2">فهم عملي للمنهج وليس حفظًا فقط</li>
-          <li data-i18n="school_f3">متابعة فردية وحل تمارين</li>
-          <li data-i18n="school_f4">رفع الدرجات والثقة في المادة</li>
-        </ul>
-        <a class="btn btn-wa enroll" data-course="school" target="_blank" rel="noopener" data-i18n="enroll">اشترك الآن</a>
-      </div>
-
-      <!-- VIDEOS -->
-      <div class="card videos reveal">
-        <span class="tag" data-i18n="videos_tag">فيديوهات مسجّلة مسبقًا</span>
-        <div class="ico">🐱🎬</div>
-        <h3 data-i18n="videos_title">دروس سكراتش مسجّلة</h3>
-        <div class="videos-count" data-i18n="videos_count">أكثر من 10 فيديوهات مسجّلة</div>
-        <div class="stack" data-i18n="videos_stack">Scratch — فيديوهات مسجّلة</div>
-        <div class="price"><span class="amt">250</span><span class="per" data-i18n="videos_per">ج.م / مرّة واحدة</span></div>
-        <div class="duration" data-i18n="videos_dur">اشتراك مدى الحياة</div>
-        <ul class="feat">
-          <li data-i18n="videos_f1">مجموعة كاملة من دروس سكراتش من الصفر</li>
-          <li data-i18n="videos_f2">شاهد في أي وقت — من أي جهاز</li>
-          <li data-i18n="videos_f3">مشاريع عملية: ألعاب ومنصّات وقصص تفاعلية</li>
-          <li data-i18n="videos_f4">وصول مدى الحياة بدون اشتراك شهري</li>
-        </ul>
-        <a class="btn btn-wa enroll" data-course="videos" target="_blank" rel="noopener" data-i18n="enroll">اشترك الآن</a>
-      </div>
-
-    </div>
+    <div class="course-grid" id="courseGrid"></div>
   </div>
 </section>
 
@@ -580,11 +505,7 @@
     <span class="eyebrow reveal" data-i18n="why_eyebrow">لماذا تتعلّم معي</span>
     <h2 class="sec-title reveal" data-i18n="why_title">خبرة صناعة حقيقية — لا مجرد نظريات</h2>
     <p class="sec-sub reveal" data-i18n="why_sub">أعلّمك ما أستخدمه فعليًا في بناء تطبيقات يستعملها آلاف المستخدمين يوميًا.</p>
-    <div class="why-grid">
-      <div class="why-item reveal"><div class="ico">🏭</div><h3 data-i18n="why1_t">من قلب السوق</h3><p data-i18n="why1_d">أكثر من 3 سنوات كمطوّر أندرويد محترف في Awamer Alshabaka (AAIT) و Alexon Incorp.</p></div>
-      <div class="why-item reveal"><div class="ico">📲</div><h3 data-i18n="why2_t">تطبيقات حقيقية</h3><p data-i18n="why2_d">شحنت أكثر من 8 تطبيقات على جوجل بلاي: تجارة إلكترونية، نقل، طب عن بُعد، وخدمات عند الطلب.</p></div>
-      <div class="why-item reveal"><div class="ico">🧩</div><h3 data-i18n="why3_t">تعليم عملي</h3><p data-i18n="why3_d">كل درس يقودك لبناء شيء ملموس — لأن البرمجة تُتعلّم بالممارسة لا بالحفظ.</p></div>
-    </div>
+    <div class="why-grid" id="whyGrid"></div>
   </div>
 </section>
 
@@ -594,17 +515,7 @@
     <span class="eyebrow reveal" style="background:rgba(255,255,255,.12);color:#fff" data-i18n="proj_eyebrow">ماذا ستبني</span>
     <h2 class="sec-title reveal" data-i18n="proj_title">مشاريع تخرج بها بنهاية الدورة</h2>
     <p class="sec-sub reveal" data-i18n="proj_sub">تنتهي كل دورة ومعك مشروع حقيقي تفتخر به وتضيفه لمعرض أعمالك.</p>
-    <div class="proj-grid">
-      <div class="proj reveal"><span class="emoji">🐤</span><h3 data-i18n="p1_t">لعبة Flappy Bird</h3><p data-i18n="p1_d">يبني الطفل لعبته الأولى خطوة بخطوة في سكراتش ويلعبها مع أصدقائه.</p><span class="pill" data-i18n="p1_tag">Scratch · أطفال</span></div>
-      <div class="proj reveal"><span class="emoji">🍎</span><h3 data-i18n="p2_t">لعبة Catch the Apple</h3><p data-i18n="p2_d">منطق برمجي ممتع: حركة، نقاط، ومستويات — أساسيات التفكير البرمجي.</p><span class="pill" data-i18n="p2_tag">Python · أطفال</span></div>
-      <div class="proj reveal"><span class="emoji">🍄</span><h3 data-i18n="p4_t">لعبة Mario</h3><p data-i18n="p4_d">يبني الطفل لعبة ماريو الشهيرة بالقفز والعقبات والمستويات في سكراتش.</p><span class="pill" data-i18n="p4_tag">Scratch · أطفال</span></div>
-      <div class="proj reveal"><span class="emoji">👾</span><h3 data-i18n="p5_t">لعبة Shoot the Enemy</h3><p data-i18n="p5_d">لعبة إطلاق نار ممتعة: تصويب، أعداء، ونقاط — يتعلّم الطفل التحكم والمنطق.</p><span class="pill" data-i18n="p5_tag">Scratch · أطفال</span></div>
-       <div class="proj reveal"><span class="emoji">🧮</span><h3 data-i18n="p9_t">تطبيق آلة حاسبة</h3><p data-i18n="p9_d">أول تطبيق بسيط وسهل: أزرار وعمليات حسابية — بداية مثالية لفهم بناء الواجهات.</p><span class="pill" data-i18n="p9_tag">Kotlin · كبار</span></div>
-      <div class="proj reveal"><span class="emoji">📱</span><h3 data-i18n="p3_t">تطبيق Family App</h3><p data-i18n="p3_d">من أول شاشة حتى استخدامه على هاتفك، باستخدام كوتلن وأحدث أدوات تطوير الهاتف.</p><span class="pill" data-i18n="p3_tag">Kotlin · كبار</span></div>
-      <div class="proj reveal"><span class="emoji">🛒</span><h3 data-i18n="p6_t">تطبيق متجر إلكتروني</h3><p data-i18n="p6_d">واجهة منتجات، سلة شراء، وتسجيل دخول — تطبيق تجارة إلكترونية حقيقي بلغة كوتلن.</p><span class="pill" data-i18n="p6_tag">Kotlin · كبار</span></div>
-      <div class="proj reveal"><span class="emoji">🌦️</span><h3 data-i18n="p7_t">تطبيق الطقس</h3><p data-i18n="p7_d">يتصل بـ API حقيقي لعرض حالة الطقس — يتعلّم الطالب الشبكات وعرض البيانات.</p><span class="pill" data-i18n="p7_tag">Kotlin · كبار</span></div>
-      <div class="proj reveal"><span class="emoji">✅</span><h3 data-i18n="p8_t">تطبيق المهام والملاحظات</h3><p data-i18n="p8_d">حفظ المهام محليًا على الهاتف مع إضافة وحذف وتعديل — أساسيات قواعد البيانات.</p><span class="pill" data-i18n="p8_tag">Kotlin · كبار</span></div>
-    </div>
+    <div class="proj-grid" id="projGrid"></div>
   </div>
 </section>
 
@@ -614,41 +525,7 @@
     <span class="eyebrow reveal" data-i18n="gal_eyebrow">معرض الأعمال</span>
     <h2 class="sec-title reveal" data-i18n="gal_title">أعمال نفّذها طلابي</h2>
     <p class="sec-sub reveal" data-i18n="gal_sub">ألعاب وتطبيقات حقيقية بناها الطلاب خلال الدورات — اضغط على أي عمل لعرضه بحجم أكبر.</p>
-    <div class="gal-grid">
-
-      <figure class="gal-item reveal" data-full="gallery/scratch-platformer.png">
-        <div class="gal-thumb">
-          <span class="gal-badge" data-i18n="gal1_tag">Scratch · أطفال</span>
-          <span class="gal-zoom">⤢</span>
-          <img src="gallery/scratch-platformer.png" alt="لعبة منصّات بالسكراتش" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />
-          <span class="ph" style="display:none">🎮</span>
-        </div>
-        <figcaption class="gal-info"><h3 data-i18n="gal1_t">لعبة Mario</h3><p data-i18n="gal1_d">لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.</p></figcaption>
-      </figure>
-
-      
-       <figure class="gal-item reveal" data-full="gallery/task.png">
-        <div class="gal-thumb">
-          <span class="gal-badge" data-i18n="gal1_tag">Scratch · أطفال</span>
-          <span class="gal-zoom">⤢</span>
-          <img src="gallery/task.png" alt="لعبة منصّات بالسكراتش" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />
-          <span class="ph" style="display:none">🎮</span>
-        </div>
-        <figcaption class="gal-info"><h3 data-i18n="gal3_t">لعبة عالم البحار</h3><p data-i18n="gal3_d">لعبة بنقاط وأشكال ولمس للقرش — من تنفيذ الطلاب في سكراتش.</p></figcaption>
-      </figure>
-
-    
-      <figure class="gal-item reveal" data-full="gallery/family-app.png">
-        <div class="gal-thumb">
-          <span class="gal-badge" data-i18n="gal2_tag">Kotlin · كبار</span>
-          <span class="gal-zoom">⤢</span>
-          <img src="gallery/family-app.png" alt="تطبيق أفراد العائلة بالأندرويد" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />
-          <span class="ph" style="display:none">📱</span>
-        </div>
-        <figcaption class="gal-info"><h3 data-i18n="gal2_t">تطبيق أفراد العائلة</h3><p data-i18n="gal2_d">تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.</p></figcaption>
-      </figure>
-
-    </div>
+    <div class="gal-grid" id="galGrid"></div>
   </div>
 </section>
 
@@ -666,18 +543,7 @@
         <button class="rev-arrow" id="revNext" type="button" aria-label="التالي" data-i18n-aria="rev_next"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
       </div>
     </div>
-    <div class="reviews-track" id="revTrack">
-      <div class="review-card reveal"><p class="rev-text">السيشن كانت ممتازة وممتعة والشرح كان واضح جدًا وسهل، وخلتني أحب البرمجة أكتر. شكرًا يا مستر ❤️</p><div class="rev-who"><div class="rev-av">ح</div><div><div class="rev-name">محمد الحطاب</div><div class="rev-age">16 سنة</div></div></div></div>
-         <div class="review-card reveal"><p class="rev-text">ابني كان مبسوط جدا من السيشن وقالي فيها معلومات كتير حلوة اول مرة اعرفها والحصة كانت حلوة اوي</p><div class="rev-who"><div class="rev-av">ح</div><div><div class="rev-name">حنين أحمد</div><div class="rev-age">14 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">بسم الله ماشاء الله، شرح المستر فوق الممتاز وكمان بيسهّل الشرح علينا. ربنا يجعله في ميزان حسناته ويبارك فيه.</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رويدا</div><div class="rev-age">14 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">جميلة جدًا وممتعة، بارك الله فيكم جميعًا يا رب. نرجو منكم المزيد بإذن الله.</p><div class="rev-who"><div class="rev-av">م</div><div><div class="rev-name">محمد ياسر أبو الفتوح</div><div class="rev-age">13 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">عايزة أشكر المستر على مجهوده معانا، وجزاه الله كل خير.</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رناد أحمد حمدي</div><div class="rev-age">13 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">حصة رائعة وجميلة جدًا.</p><div class="rev-who"><div class="rev-av">س</div><div><div class="rev-name">سفيان محمد حسن</div><div class="rev-age">13 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">جميل أوي ماشاء الله 🌸</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">ريتال وسام</div><div class="rev-age">10 سنوات</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">جزاه الله خيرًا، حلو أوي.</p><div class="rev-who"><div class="rev-av">ن</div><div><div class="rev-name">نورين وسام</div><div class="rev-age">11 سنة</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">جميلة جدًا، بسم الله ماشاء الله ♥️♥️♥️</p><div class="rev-who"><div class="rev-av">ر</div><div><div class="rev-name">رودينا إيهاب</div><div class="rev-age">10 سنوات</div></div></div></div>
-      <div class="review-card reveal"><p class="rev-text">جيدة جدًا وجميلة.</p><div class="rev-who"><div class="rev-av">م</div><div><div class="rev-name">محمد حجازي</div><div class="rev-age">9 سنوات</div></div></div></div>
-    </div>
+    <div class="reviews-track" id="revTrack"></div>
   </div>
 </section>
 
@@ -685,7 +551,7 @@
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="about-card reveal">
-      <div class="avatar"><img src="instructor.jpg" alt="محمود الشحات" data-try="0" onerror="var t=['instructor.jpg','instructor.png','instructor.jpeg','instructor.webp','instructor.JPG','instructor.PNG','profile.jpg','profile.png','me.jpg'];var i=++this.dataset.try;if(i<t.length){this.src=t[i];}else{this.parentNode.textContent='م.ش';}" /></div>
+      <div class="avatar"><img id="instructorImg" alt="محمود الشحات" onerror="this.parentNode.textContent='م.ش'" /></div>
       <h3 data-i18n="about_name">محمود الشحات</h3>
       <div class="role" data-i18n="about_role">مطوّر أندرويد ومدرّب برمجة</div>
       <div class="social">
@@ -708,9 +574,7 @@
       <h2 data-i18n="about_h">من يعلّمك؟</h2>
       <p data-i18n="about_p1">محمود الشحات — مطوّر أندرويد بخبرة تزيد عن 3 سنوات في Awamer Alshabaka (AAIT) و Alexon Incorp. خريج كلية الهندسة جامعة المنصورة (هندسة الحاسبات ونظم التحكم)، وحاصل على شهادة تطوير أندرويد من Udacity / MCIT.</p>
       <p data-i18n="about_p2">شحنت أكثر من 8 تطبيقات على جوجل بلاي في مجالات التجارة الإلكترونية والنقل والطب عن بُعد والخدمات عند الطلب، يخدم بعضها آلاف المستخدمين يوميًا. أنقل لك هذه الخبرة العملية مباشرة.</p>
-      <div class="chips">
-        <span>Kotlin</span><span>Java</span><span>Python</span><span>Jetpack Compose</span><span>XML</span><span>Clean Architecture</span><span>MVVM / MVI</span>
-      </div>
+      <div class="chips" id="skillChips"></div>
     </div>
   </div>
 </section>
@@ -720,13 +584,7 @@
   <div class="wrap center">
     <span class="eyebrow reveal" data-i18n="faq_eyebrow">الأسئلة الشائعة</span>
     <h2 class="sec-title reveal" data-i18n="faq_title">عندك سؤال؟</h2>
-    <div class="faq-list" style="margin-top:30px">
-      <div class="faq-item reveal"><button class="faq-q"><span data-i18n="faq1_q">هل تحتاج الدورة خبرة سابقة؟</span><span class="ar">+</span></button><div class="faq-a"><p data-i18n="faq1_a">لا. كل المسارات تبدأ من الصفر، سواء للأطفال أو الكبار، ونتدرّج خطوة بخطوة.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span data-i18n="faq2_q">هل الدروس أونلاين أم حضوري؟</span><span class="ar">+</span></button><div class="faq-a"><p data-i18n="faq2_a">يمكن ترتيب الدروس أونلاين بالكامل. تواصل معي عبر واتساب لتحديد الأنسب لك.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span data-i18n="faq3_q">ما هي طرق الدفع؟</span><span class="ar">+</span></button><div class="faq-a"><p data-i18n="faq3_a">الدفع عبر فودافون كاش أو إنستا باي على الرقم 01093729626.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span data-i18n="faq4_q">كم مدة الدورة؟</span><span class="ar">+</span></button><div class="faq-a"><p data-i18n="faq4_a">دورتا الأطفال والكبار مدتهما 3 أشهر لكل منهما. أما دعم الثانوية فيكون حسب احتياج الطالب.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span data-i18n="faq5_q">ماذا سيبني الطالب فعليًا؟</span><span class="ar">+</span></button><div class="faq-a"><p data-i18n="faq5_a">الأطفال يبنون ألعابًا حقيقية، والكبار يبنون وينشرون تطبيق أندرويد كامل على جوجل بلاي.</p></div></div>
-    </div>
+    <div class="faq-list" id="faqList" style="margin-top:30px"></div>
   </div>
 </section>
 
@@ -738,8 +596,8 @@
       <h2 data-i18n="contact_h">جاهز تبدأ رحلتك في البرمجة؟</h2>
       <p class="lead" data-i18n="contact_lead">اسألني عن أي دورة أو احجز حصة تجريبية. سأرد عليك في أسرع وقت.</p>
       <div class="contact-list">
-        <a href="https://wa.me/201093729626" target="_blank" rel="noopener"><span class="ic">💬</span><span class="txt">+20 109 372 9626</span></a>
-        <a href="mailto:mahmoudelshahatt1@gmail.com"><span class="ic">✉️</span><span class="txt">mahmoudelshahatt1@gmail.com</span></a>
+        <a id="contactWaLink" href="https://wa.me/201093729626" target="_blank" rel="noopener"><span class="ic">💬</span><span class="txt">+20 109 372 9626</span></a>
+        <a id="contactMail" href="mailto:mahmoudelshahatt1@gmail.com"><span class="ic">✉️</span><span class="txt">mahmoudelshahatt1@gmail.com</span></a>
         <div><span class="ic">📍</span><span data-i18n="contact_loc">القاهرة، مصر</span></div>
       </div>
       <a class="btn btn-wa" id="contactWa" target="_blank" rel="noopener" style="margin-top:24px">💬 <span data-i18n="contact_btn">راسلني على واتساب</span></a>
@@ -780,143 +638,112 @@
   </div>
 </footer>
 
+<script src="content.js"></script>
 <script>
-/* ---------- i18n dictionary ---------- */
-const I18N = {
-  ar:{
-    brand:"محمود الشحات",
-    nav_courses:"الدورات",nav_why:"لماذا أنا",nav_projects:"المشاريع",nav_gallery:"المعرض",nav_reviews:"الآراء",nav_about:"عن المدرّب",nav_faq:"الأسئلة",nav_contact:"تواصل",nav_cta:"ابدأ الآن",
-    gal_eyebrow:"معرض الأعمال",gal_title:"أعمال نفّذها طلابي",gal_sub:"ألعاب وتطبيقات حقيقية بناها الطلاب خلال الدورات — اضغط على أي عمل لعرضه بحجم أكبر.",
-    gal1_tag:"Scratch · أطفال",gal1_t:"لعبة Mario",gal1_d:"لعبة بنقاط وأرواح وأعداء وعملات ومنصّات — من تنفيذ الطلاب في سكراتش.",
-    gal3_tag:"Scratch · أطفال",gal3_t:"لعبة عالم البحار",gal3_d:"لعبة بنقاط وأشكال ولمس للقرش — من تنفيذ الطلاب في سكراتش.",
-    gal2_tag:"Kotlin · كبار",gal2_t:"تطبيق أفراد العائلة",gal2_d:"تطبيق أندرويد لإدارة أفراد العائلة بواجهة عربية — مبني بلغة كوتلن.",
-    lb_close:"إغلاق",
-    rev_eyebrow:"آراء الطلاب",rev_title:"ماذا قال طلابي؟",rev_sub:"آراء من طلابي بعد كل جلسة، حتى تتأكد قبل ما تبدأ رحلتك 😉",rev_prev:"السابق",rev_next:"التالي",
-    hero_badge:"🚀 تعلّم البرمجة من مطوّر محترف",
-    hero_title:'تعلّم البرمجة من الصفر إلى <span class="hl">احتراف حقيقي</span>',
-    hero_lead:"دروس برمجة للأطفال والكبار في مصر — من ألعاب سكراتش وبايثون الممتعة، إلى بناء تطبيق أندرويد حقيقي بلغة كوتلن. تعليم عملي على يد مطوّر شحن أكثر من ٨ تطبيقات على جوجل بلاي.",
-    hero_cta1:"احجز حصة تجريبية",hero_cta2:"تصفّح الدورات",
-    hero_b1:"✅ بدون خبرة سابقة",hero_b2:"🎯 مشاريع عملية",hero_b3:"📱 أدوات حديثة",
-    stat1:"سنوات خبرة احترافية",stat2:"تطبيقات على جوجل بلاي",stat3:"طالب وطالبة",stat4:"مستخدم يومي للتطبيقات",
-    courses_eyebrow:"الدورات والأسعار",courses_title:"اختر المسار المناسب لك",courses_sub:"ثلاثة مسارات مصمّمة بعناية — للأطفال، للكبار، ولطلاب الثانوية. اشترك مباشرة عبر واتساب.",
-    badge_fun:"الأكثر متعة 🎮",badge_pro:"احترافي 💼",
-    kids_tag:"للأطفال (6–13 سنة)",kids_title:"البرمجة للأطفال",kids_stack:"Scratch + Python",
-    kids_f1:"تعلّم ممتع قائم على الألعاب",kids_f2:"يبني الطفل ألعابًا حقيقية مثل Flappy Bird و Catch the Apple و Mario",kids_f3:"لا يحتاج أي خبرة سابقة",kids_f4:"تنمية التفكير المنطقي والإبداع",
-    adults_tag:"للكبار والمبتدئين",adults_title:"البرمجة للكبار",adults_stack:"Kotlin + Android Development",
-    adults_f1:"من أساسيات كوتلن إلى بناء ونشر تطبيق أندرويد حقيقي",adults_f2:"مشاريع عملية بأسلوب احترافي",adults_f3:"أدوات حديثة مثل Jetpack Compose و XML ومكتبات Jetpack الحديثة",adults_f4:"إرشاد مبني على خبرة صناعة حقيقية",
-    school_tag:"طلاب الثانوية",school_title:"مادة البرمجة للثانوية",school_stack:"دروس خصوصية لمنهج الثانوية",contact_price:"تواصل لمعرفة السعر",school_dur:"⏳ حسب احتياج الطالب",
-    school_f1:"دعم مركّز على الامتحانات",school_f2:"فهم عملي للمنهج وليس حفظًا فقط",school_f3:"متابعة فردية وحل تمارين",school_f4:"رفع الدرجات والثقة في المادة",
-    videos_tag:"فيديوهات مسجّلة مسبقًا",videos_title:"دروس سكراتش مسجّلة",videos_count:"🎥 أكثر من 10 فيديوهات مسجّلة",videos_stack:"Scratch — فيديوهات مسجّلة",
-    videos_per:"ج.م / مرّة واحدة",videos_dur:"⏳ اشتراك مدى الحياة",
-    videos_f1:"مجموعة كاملة من دروس سكراتش من الصفر",videos_f2:"شاهد في أي وقت — من أي جهاز",videos_f3:"مشاريع عملية: ألعاب ومنصّات وقصص تفاعلية",videos_f4:"وصول مدى الحياة بدون اشتراك شهري",
-    per_month:"ج.م / شهريًا",months3:"⏳ مدة الدورة: 3 أشهر",enroll:"اشترك الآن",
-    why_eyebrow:"لماذا تتعلّم معي",why_title:"خبرة صناعة حقيقية — لا مجرد نظريات",why_sub:"أعلّمك ما أستخدمه فعليًا في بناء تطبيقات يستعملها آلاف المستخدمين يوميًا.",
-    why1_t:"من قلب السوق",why1_d:"أكثر من 3 سنوات كمطوّر أندرويد محترف في Awamer Alshabaka (AAIT) و Alexon Incorp.",
-    why2_t:"تطبيقات حقيقية",why2_d:"شحنت أكثر من 8 تطبيقات على جوجل بلاي: تجارة إلكترونية، نقل، طب عن بُعد، وخدمات عند الطلب.",
-    why3_t:"تعليم عملي",why3_d:"كل درس يقودك لبناء شيء ملموس — لأن البرمجة تُتعلّم بالممارسة لا بالحفظ.",
-    proj_eyebrow:"ماذا ستبني",proj_title:"مشاريع تخرج بها بنهاية الدورة",proj_sub:"تنتهي كل دورة ومعك مشروع حقيقي تفتخر به وتضيفه لمعرض أعمالك.",
-    p1_t:"لعبة Flappy Bird",p1_d:"يبني الطفل لعبته الأولى خطوة بخطوة في سكراتش ويلعبها مع أصدقائه.",p1_tag:"Scratch · أطفال",
-    p2_t:"لعبة Catch the Apple",p2_d:"منطق برمجي ممتع: حركة، نقاط، ومستويات — أساسيات التفكير البرمجي.",p2_tag:"Python · أطفال",
-    p4_t:"لعبة Mario",p4_d:"يبني الطفل لعبة ماريو الشهيرة بالقفز والعقبات والمستويات في سكراتش.",p4_tag:"Scratch · أطفال",
-    p5_t:"لعبة Shoot the Enemy",p5_d:"لعبة إطلاق نار ممتعة: تصويب، أعداء، ونقاط — يتعلّم الطفل التحكم والمنطق.",p5_tag:"Scratch · أطفال",
-    p3_t:"تطبيق Family App",p3_d:"من أول شاشة حتى استخدامه على هاتفك، باستخدام كوتلن وأحدث أدوات تطوير الهاتف.",p3_tag:"Kotlin · كبار",
-    p6_t:"تطبيق متجر إلكتروني",p6_d:"واجهة منتجات، سلة شراء، وتسجيل دخول — تطبيق تجارة إلكترونية حقيقي بلغة كوتلن.",p6_tag:"Kotlin · كبار",
-    p7_t:"تطبيق الطقس",p7_d:"يتصل بـ API حقيقي لعرض حالة الطقس — يتعلّم الطالب الشبكات وعرض البيانات.",p7_tag:"Kotlin · كبار",
-    p8_t:"تطبيق المهام والملاحظات",p8_d:"حفظ المهام محليًا على الهاتف مع إضافة وحذف وتعديل — أساسيات قواعد البيانات.",p8_tag:"Kotlin · كبار",
-    p9_t:"تطبيق آلة حاسبة",p9_d:"أول تطبيق بسيط وسهل: أزرار وعمليات حسابية — بداية مثالية لفهم بناء الواجهات.",p9_tag:"Kotlin · كبار",
-    about_name:"محمود الشحات",about_role:"مطوّر أندرويد ومدرّب برمجة",portfolio:"أعمالي",
-    about_eyebrow:"عن المدرّب",about_h:"من يعلّمك؟",
-    about_p1:"محمود الشحات — مطوّر أندرويد بخبرة تزيد عن 3 سنوات في Awamer Alshabaka (AAIT) و Alexon Incorp. خريج كلية الهندسة جامعة المنصورة (هندسة الحاسبات ونظم التحكم)، وحاصل على شهادة تطوير أندرويد من Udacity / MCIT.",
-    about_p2:"شحنت أكثر من 8 تطبيقات على جوجل بلاي في مجالات التجارة الإلكترونية والنقل والطب عن بُعد والخدمات عند الطلب، يخدم بعضها آلاف المستخدمين يوميًا. أنقل لك هذه الخبرة العملية مباشرة.",
-    faq_eyebrow:"الأسئلة الشائعة",faq_title:"عندك سؤال؟",
-    faq1_q:"هل تحتاج الدورة خبرة سابقة؟",faq1_a:"لا. كل المسارات تبدأ من الصفر، سواء للأطفال أو الكبار، ونتدرّج خطوة بخطوة.",
-    faq2_q:"هل الدروس أونلاين أم حضوري؟",faq2_a:"يمكن ترتيب الدروس أونلاين بالكامل. تواصل معي عبر واتساب لتحديد الأنسب لك.",
-    faq3_q:"ما هي طرق الدفع؟",faq3_a:"الدفع عبر فودافون كاش أو إنستا باي على الرقم 01093729626.",
-    faq4_q:"كم مدة الدورة؟",faq4_a:"دورتا الأطفال والكبار مدتهما 3 أشهر لكل منهما. أما دعم الثانوية فيكون حسب احتياج الطالب.",
-    faq5_q:"ماذا سيبني الطالب فعليًا؟",faq5_a:"الأطفال يبنون ألعابًا حقيقية، والكبار يبنون وينشرون تطبيق أندرويد كامل على جوجل بلاي.",
-    contact_eyebrow:"تواصل معي",contact_h:"جاهز تبدأ رحلتك في البرمجة؟",contact_lead:"اسألني عن أي دورة أو احجز حصة تجريبية. سأرد عليك في أسرع وقت.",
-    contact_loc:"القاهرة، مصر",contact_btn:"راسلني على واتساب",
-    pay_title:"طرق الدفع",pay_sub:"حوّل بسهولة على نفس الرقم",pay_vc:"فودافون كاش",pay_ip:"إنستا باي",copy:"نسخ",copied:"تم النسخ ✓",pay_note:"بعد التحويل، أرسل صورة الإيصال على واتساب لتأكيد الاشتراك.",
-    foot:"© 2026 محمود الشحات — تعلّم البرمجة. جميع الحقوق محفوظة."
-  },
-  en:{
-    brand:"Mahmoud Elshahatt",
-    nav_courses:"Courses",nav_why:"Why Me",nav_projects:"Projects",nav_gallery:"Gallery",nav_reviews:"Reviews",nav_about:"Instructor",nav_faq:"FAQ",nav_contact:"Contact",nav_cta:"Start Now",
-    gal_eyebrow:"Work Gallery",gal_title:"Projects built by my students",gal_sub:"Real games and apps students built during the courses — tap any work to view it larger.",
-    gal1_tag:"Scratch · Kids",gal1_t:"Mario Game",gal1_d:"A game with score, lives, enemies, coins and platforms — built by students in Scratch.",
-    gal2_tag:"Kotlin · Adults",gal2_t:"Family Members App",gal2_d:"An Android app to manage family members with an Arabic UI — built with Kotlin.",
-    lb_close:"Close",
-    rev_eyebrow:"Student Reviews",rev_title:"What my students say",rev_sub:"Real reviews from my students after every session — so you can be sure before you start your journey 😉",rev_prev:"Previous",rev_next:"Next",
-    hero_badge:"🚀 Learn coding from a professional developer",
-    hero_title:'Learn to code from zero to <span class="hl">real mastery</span>',
-    hero_lead:"Programming lessons for kids and adults in Egypt — from fun Scratch & Python games to building a real Android app in Kotlin. Hands-on teaching from a developer who shipped 8+ apps on Google Play.",
-    hero_cta1:"Book a Free Trial",hero_cta2:"Browse Courses",
-    hero_b1:"✅ No experience needed",hero_b2:"🎯 Real projects",hero_b3:"📱 Modern tools",
-    stat1:"Years of pro experience",stat2:"Apps on Google Play",stat3:"Students taught",stat4:"Daily app users",
-    courses_eyebrow:"Courses & Pricing",courses_title:"Choose the right path for you",courses_sub:"Three carefully designed tracks — for kids, adults, and secondary students. Enroll directly via WhatsApp.",
-    badge_fun:"Most Fun 🎮",badge_pro:"Professional 💼",
-    kids_tag:"For Kids (ages 6–13)",kids_title:"Programming for Kids",kids_stack:"Scratch + Python",
-    kids_f1:"Fun, game-based learning",kids_f2:"Kids build real games like Flappy Bird, Catch the Apple & Mario",kids_f3:"No prior experience needed",kids_f4:"Builds logical thinking & creativity",
-    adults_tag:"For Adults & Beginners",adults_title:"Programming for Adults",adults_stack:"Kotlin + Android Development",
-    adults_f1:"From Kotlin basics to building & publishing a real Android app",adults_f2:"Hands-on, professional-style projects",adults_f3:"Modern tools like Jetpack Compose, XML & Jetpack libraries",adults_f4:"Mentoring grounded in real industry experience",
-    school_tag:"Secondary Students",school_title:"Secondary School Programming",school_stack:"Private tutoring for the curriculum",contact_price:"Contact for details",school_dur:"⏳ Based on the student's needs",
-    school_f1:"Exam-focused support",school_f2:"Practical understanding, not just memorizing",school_f3:"One-on-one follow-up & exercises",school_f4:"Higher grades & confidence in the subject",
-    videos_tag:"Pre-recorded Videos",videos_title:"Recorded Scratch Lessons",videos_count:"10+ recorded videos included",videos_stack:"Scratch — Recorded Videos",
-    videos_per:"EGP / one-time",videos_dur:"Lifetime access",
-    videos_f1:"Complete set of Scratch lessons from scratch",videos_f2:"Watch anytime — from any device",videos_f3:"Practical projects: games, platforms & interactive stories",videos_f4:"Lifetime access with no monthly fee",
-    per_month:"EGP / month",months3:"⏳ Duration: 3 months",enroll:"Enroll Now",
-    why_eyebrow:"Why learn with me",why_title:"Real industry experience — not just theory",why_sub:"I teach you what I actually use to build apps used by thousands of people every day.",
-    why1_t:"Straight from the field",why1_d:"3+ years as a professional Android developer at Awamer Alshabaka (AAIT) and Alexon Incorp.",
-    why2_t:"Real apps",why2_d:"Shipped 8+ apps on Google Play: e-commerce, ride-hailing, telemedicine, and on-demand services.",
-    why3_t:"Hands-on teaching",why3_d:"Every lesson leads you to build something real — because coding is learned by doing, not memorizing.",
-    proj_eyebrow:"What you'll build",proj_title:"Projects you'll finish the course with",proj_sub:"Every course ends with a real project you're proud of and can add to your portfolio.",
-    p1_t:"Flappy Bird Game",p1_d:"Kids build their first game step by step in Scratch and play it with friends.",p1_tag:"Scratch · Kids",
-    p2_t:"Catch the Apple Game",p2_d:"Fun coding logic: movement, scoring and levels — the basics of computational thinking.",p2_tag:"Python · Kids",
-    p4_t:"Mario Game",p4_d:"Kids build the famous Mario game with jumping, obstacles and levels in Scratch.",p4_tag:"Scratch · Kids",
-    p5_t:"Shoot the Enemy Game",p5_d:"A fun shooter: aiming, enemies and scoring — kids learn control and logic.",p5_tag:"Scratch · Kids",
-    p3_t:"Family App",p3_d:"From the first screen to running it on your own phone, using Kotlin & Jetpack Compose.",p3_tag:"Kotlin · Adults",
-    p6_t:"E-commerce App",p6_d:"Product list, shopping cart and login — a real e-commerce app built in Kotlin.",p6_tag:"Kotlin · Adults",
-    p7_t:"Weather App",p7_d:"Connects to a real API to show live weather — students learn networking and data display.",p7_tag:"Kotlin · Adults",
-    p8_t:"Tasks & Notes App",p8_d:"Save tasks locally on the phone with add, edit and delete — the basics of databases.",p8_tag:"Kotlin · Adults",
-    p9_t:"Calculator App",p9_d:"A simple, easy first app: buttons and arithmetic — the perfect start to understanding UI building.",p9_tag:"Kotlin · Adults",
-    about_name:"Mahmoud Elshahatt",about_role:"Android Developer & Coding Instructor",portfolio:"Portfolio",
-    about_eyebrow:"About the Instructor",about_h:"Who will teach you?",
-    about_p1:"Mahmoud Elshahatt — Android Developer with 3+ years of experience at Awamer Alshabaka (AAIT) and Alexon Incorp. Graduate of the Faculty of Engineering, Mansoura University (Computer Science & Control Systems), with an Android Development certification from Udacity / MCIT.",
-    about_p2:"Shipped 8+ apps on Google Play across e-commerce, ride-hailing, telemedicine and on-demand services, some serving thousands of daily users. I pass this hands-on experience straight to you.",
-    faq_eyebrow:"FAQ",faq_title:"Got a question?",
-    faq1_q:"Does the course need prior experience?",faq1_a:"No. Every track starts from zero — for kids and adults alike — and we progress step by step.",
-    faq2_q:"Are lessons online or in person?",faq2_a:"Lessons can be arranged fully online. Message me on WhatsApp to find what suits you best.",
-    faq3_q:"What are the payment methods?",faq3_a:"Payment via Vodafone Cash or InstaPay to the number 01093729626.",
-    faq4_q:"How long is the course?",faq4_a:"The kids and adults courses are 3 months each. Secondary-school support is based on the student's needs.",
-    faq5_q:"What will the student actually build?",faq5_a:"Kids build real games, and adults build & publish a complete Android app on Google Play.",
-    contact_eyebrow:"Get in touch",contact_h:"Ready to start your coding journey?",contact_lead:"Ask me about any course or book a free trial. I'll reply as soon as possible.",
-    contact_loc:"Cairo, Egypt",contact_btn:"Message me on WhatsApp",
-    pay_title:"Payment Methods",pay_sub:"Transfer easily to the same number",pay_vc:"Vodafone Cash",pay_ip:"InstaPay",copy:"Copy",copied:"Copied ✓",pay_note:"After transferring, send the receipt screenshot on WhatsApp to confirm your enrollment.",
-    foot:"© 2026 Mahmoud Elshahatt — Learn Programming. All rights reserved."
-  }
-};
+/* ---------- content: lives in content.js, edited from admin.html ---------- */
+let C=window.SITE_CONTENT||{};
+const PREVIEW=/[?&]preview=1/.test(location.search);
+if(PREVIEW){try{const p=localStorage.getItem("cwm_preview");if(p)C=JSON.parse(p);}catch(e){}}
+const S=C.settings||{};
+
+/* ---------- i18n dictionary (fixed texts + keys registered while rendering) ---------- */
+const I18N={ar:Object.assign({},(C.texts||{}).ar),en:Object.assign({},(C.texts||{}).en)};
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+/* register a bilingual value and return its data-i18n key (English falls back to Arabic) */
+function tr(key,v){v=v||{};I18N.ar[key]=v.ar||"";I18N.en[key]=v.en||v.ar||"";return key;}
+const has=v=>!!(v&&(v.ar||v.en));
 
 /* WhatsApp pre-filled messages per course */
-const WA_NUM="201093729626";
-const WA_MSG={
-  ar:{
-    general:"مرحبًا محمود، أريد حجز حصة تجريبية في البرمجة.",
-    contact:"مرحبًا محمود، لديّ استفسار عن دورات البرمجة.",
-    kids:"مرحبًا محمود، أريد الاشتراك في دورة «البرمجة للأطفال» (Scratch + Python).",
-    adults:"مرحبًا محمود، أريد الاشتراك في دورة «البرمجة للكبار» (Kotlin + Android).",
-    school:"مرحبًا محمود، أريد الاشتراك في دروس «مادة البرمجة للثانوية».",
-    videos:"مرحبًا محمود، أريد الاشتراك في «دروس سكراتش المسجّلة»."
-  },
-  en:{
-    general:"Hi Mahmoud, I'd like to book a free programming trial lesson.",
-    contact:"Hi Mahmoud, I have a question about your programming courses.",
-    kids:"Hi Mahmoud, I'd like to enroll in the 'Programming for Kids' course (Scratch + Python).",
-    adults:"Hi Mahmoud, I'd like to enroll in the 'Programming for Adults' course (Kotlin + Android).",
-    school:"Hi Mahmoud, I'd like to enroll in the 'Secondary School Programming' tutoring.",
-    videos:"Hi Mahmoud, I'd like to enroll in the 'Recorded Scratch Lessons'."
+const WA_NUM=S.whatsapp||"";
+const WA_MSG={ar:{},en:{}};
+const waSet=(k,v)=>{v=v||{};WA_MSG.ar[k]=v.ar||"";WA_MSG.en[k]=v.en||v.ar||"";};
+waSet("general",(C.waMessages||{}).general);
+waSet("contact",(C.waMessages||{}).contact);
+(C.courses||[]).forEach(c=>waSet(c.id,c.waMessage));
+function waLink(key,lang){return `https://wa.me/${WA_NUM}?text=`+encodeURIComponent(WA_MSG[lang][key]||"");}
+
+/* ---------- render sections from content ---------- */
+(function(){
+  const put=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
+
+  put("statsGrid",(C.stats||[]).map((s,i)=>
+    `<div class="stat"><div class="num" data-count="${esc(s.value)}" data-suffix="${esc(s.suffix)}">0</div><div class="lbl" data-i18n="${tr("stat_"+i,s.label)}"></div></div>`).join(""));
+
+  put("courseGrid",(C.courses||[]).filter(c=>!c.hidden).map((c,i)=>{
+    const k="course_"+i+"_";
+    return `<div class="card ${esc(c.style||"kids")} reveal">`+
+      (has(c.badge)?`<span class="popular" data-i18n="${tr(k+"badge",c.badge)}"></span>`:"")+
+      `<span class="tag" data-i18n="${tr(k+"tag",c.tag)}"></span>`+
+      `<div class="ico">${esc(c.icon)}</div>`+
+      `<h3 data-i18n="${tr(k+"title",c.title)}"></h3>`+
+      (has(c.note)?`<div class="videos-count" data-i18n="${tr(k+"note",c.note)}"></div>`:"")+
+      `<div class="stack" data-i18n="${tr(k+"stack",c.stack)}"></div>`+
+      (c.price
+        ?`<div class="price"><span class="amt">${esc(c.price)}</span><span class="per" data-i18n="${tr(k+"per",c.per)}"></span></div>`
+        :`<div class="price"><span class="amt" style="font-size:1.5rem" data-i18n="${tr(k+"ptext",c.priceText)}"></span></div>`)+
+      `<div class="duration" data-i18n="${tr(k+"dur",c.duration)}"></div>`+
+      `<ul class="feat">${(c.features||[]).map((f,j)=>`<li data-i18n="${tr(k+"f"+j,f)}"></li>`).join("")}</ul>`+
+      `<a class="btn btn-wa enroll" data-course="${esc(c.id)}" target="_blank" rel="noopener" data-i18n="enroll"></a></div>`;
+  }).join(""));
+
+  put("whyGrid",(C.why||[]).map((w,i)=>
+    `<div class="why-item reveal"><div class="ico">${esc(w.icon)}</div><h3 data-i18n="${tr("why_"+i+"_t",w.title)}"></h3><p data-i18n="${tr("why_"+i+"_d",w.desc)}"></p></div>`).join(""));
+
+  put("projGrid",(C.projects||[]).map((p,i)=>
+    `<div class="proj reveal"><span class="emoji">${esc(p.icon)}</span><h3 data-i18n="${tr("proj_"+i+"_t",p.title)}"></h3><p data-i18n="${tr("proj_"+i+"_d",p.desc)}"></p>`+
+    (has(p.tag)?`<span class="pill" data-i18n="${tr("proj_"+i+"_tag",p.tag)}"></span>`:"")+`</div>`).join(""));
+
+  put("galGrid",(C.gallery||[]).map((g,i)=>
+    `<figure class="gal-item reveal" data-full="${esc(g.image)}"><div class="gal-thumb">`+
+    (has(g.tag)?`<span class="gal-badge" data-i18n="${tr("gal_"+i+"_tag",g.tag)}"></span>`:"")+
+    `<span class="gal-zoom">⤢</span>`+
+    `<img src="${esc(g.image)}" alt="${esc((g.title||{}).ar)}" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='grid'" />`+
+    `<span class="ph" style="display:none">${esc(g.icon||"🖼️")}</span></div>`+
+    `<figcaption class="gal-info"><h3 data-i18n="${tr("gal_"+i+"_t",g.title)}"></h3><p data-i18n="${tr("gal_"+i+"_d",g.desc)}"></p></figcaption></figure>`).join(""));
+
+  put("revTrack",(C.reviews||[]).map(r=>
+    `<div class="review-card reveal"><p class="rev-text">${esc(r.text)}</p><div class="rev-who"><div class="rev-av">${esc((r.name||"").trim().charAt(0))}</div>`+
+    `<div><div class="rev-name">${esc(r.name)}</div><div class="rev-age">${esc(r.age)}</div></div></div></div>`).join(""));
+
+  put("skillChips",(C.skills||[]).map(s=>`<span>${esc(s)}</span>`).join(""));
+
+  put("faqList",(C.faq||[]).map((f,i)=>
+    `<div class="faq-item reveal"><button class="faq-q"><span data-i18n="${tr("faq_"+i+"_q",f.q)}"></span><span class="ar">+</span></button>`+
+    `<div class="faq-a"><p data-i18n="${tr("faq_"+i+"_a",f.a)}"></p></div></div>`).join(""));
+
+  /* contact details, social links, payment numbers, photo */
+  const wa="https://wa.me/"+WA_NUM;
+  const m=/^20(\d{3})(\d{3})(\d{4})$/.exec(WA_NUM);
+  const waText=m?`+20 ${m[1]} ${m[2]} ${m[3]}`:"+"+WA_NUM;
+  const link=(sel,url,text)=>{
+    const a=document.querySelector(sel);if(!a)return;
+    if(!url){a.style.display="none";return;}
+    a.href=url;
+    if(text!==undefined){const t=a.querySelector(".txt");if(t)t.textContent=text;}
+  };
+  link('.social a[title="WhatsApp"]',WA_NUM&&wa);
+  link('.social a[title="LinkedIn"]',S.linkedin);
+  link('.social a[title="GitHub"]',S.github);
+  link('.social a[title="Portfolio"]',S.portfolio);
+  link("#contactWaLink",WA_NUM&&wa,waText);
+  link("#contactMail",S.email&&"mailto:"+S.email,S.email);
+  const pays=document.querySelectorAll(".pay-method");
+  [S.vodafoneCash,S.instapay].forEach((num,i)=>{
+    const p=pays[i];if(!p)return;
+    if(!num){p.style.display="none";return;}
+    p.querySelector(".num").textContent=num;
+    p.querySelector(".copy-btn").setAttribute("data-copy",num);
+  });
+  const photo=document.getElementById("instructorImg");
+  if(photo){if(S.photo)photo.src=S.photo;else photo.parentNode.textContent="م.ش";}
+
+  if(PREVIEW){
+    const b=document.createElement("div");
+    b.textContent="Preview — not published yet";
+    b.style.cssText="position:fixed;bottom:14px;inset-inline-start:14px;z-index:200;background:#ffb020;color:#10142a;font-weight:800;font-size:.82rem;padding:8px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(16,20,42,.25);direction:ltr";
+    document.body.appendChild(b);
   }
-};
-function waLink(key,lang){return `https://wa.me/${WA_NUM}?text=`+encodeURIComponent(WA_MSG[lang][key]);}
+})();
 
 let lang="ar";
 function applyLang(l){

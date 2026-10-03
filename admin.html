@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://api.github.com; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'" />
+<title>Dashboard — Code with Mahmoud</title>
+<style>
+  :root{
+    --bg:#f6f7fc;--surface:#fff;--soft:#f0f2fa;--ink:#10142a;--muted:#5b6178;--line:#e2e5f0;
+    --brand:#2563eb;--brand-ink:#fff;--warn:#b45309;--danger:#dc2626;--ok:#16a34a;
+    --grad:linear-gradient(135deg,#7b61ff 0%,#2563eb 45%,#22c1c3 100%);
+    --radius:14px;--shadow:0 6px 18px rgba(16,20,42,.08);
+    --font:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0b0d18;--surface:#161a2b;--soft:#10131f;--ink:#e7e9f2;--muted:#9aa0b8;--line:#262b40;--warn:#fbbf24;--shadow:0 6px 18px rgba(0,0,0,.4)}
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.55;font-size:15px}
+  [hidden]{display:none!important}
+  button,input,select,textarea{font:inherit;color:inherit}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1.5px solid var(--line);background:var(--surface);
+    border-radius:999px;padding:9px 16px;font-weight:700;font-size:.9rem;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn:hover{border-color:var(--brand);color:var(--brand)}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+  .btn.primary:hover{filter:brightness(1.1);color:var(--brand-ink)}
+  .btn:disabled{opacity:.45;cursor:default;pointer-events:none}
+  .btn.small{padding:6px 12px;font-size:.82rem}
+  .btn.add{align-self:flex-start;border-style:dashed}
+  .icon-btn{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:.85rem;flex:none}
+  .icon-btn:hover{border-color:var(--brand);color:var(--brand)}
+  .icon-btn.del:hover{border-color:var(--danger);color:var(--danger)}
+  .icon-btn:disabled{opacity:.3;pointer-events:none}
+
+  /* login */
+  .login{min-height:100vh;display:grid;place-items:center;padding:20px}
+  .login-card{width:100%;max-width:440px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+  .logo{width:46px;height:46px;border-radius:13px;background:var(--grad);display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.1rem}
+  .login-card h1{font-size:1.4rem}
+  .login-card p{color:var(--muted);font-size:.9rem}
+  .login-card ol{color:var(--muted);font-size:.86rem;padding-inline-start:18px;display:flex;flex-direction:column;gap:3px}
+  .login-card a{color:var(--brand)}
+  .err{color:var(--danger);font-weight:700;font-size:.88rem}
+  .linkish{background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.86rem;align-self:center}
+
+  /* app shell */
+  .top{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:10px 16px;flex-wrap:wrap}
+  .top .logo{width:36px;height:36px;border-radius:10px;font-size:.9rem}
+  .top h1{font-size:1.05rem;margin-inline-end:auto}
+  .status{font-size:.82rem;font-weight:700;color:var(--ok)}
+  .status.warn{color:var(--warn)}
+  .shell{display:grid;grid-template-columns:210px minmax(0,1fr);max-width:1080px;margin:0 auto;gap:22px;padding:22px 16px 80px}
+  .tabs{display:flex;flex-direction:column;gap:4px;position:sticky;top:76px;align-self:start}
+  .tab{text-align:start;border:none;background:none;padding:10px 14px;border-radius:10px;font-weight:700;color:var(--muted);cursor:pointer}
+  .tab:hover{background:var(--soft);color:var(--ink)}
+  .tab.on{background:var(--brand);color:var(--brand-ink)}
+  #panel{display:flex;flex-direction:column;gap:16px;min-width:0}
+  #panel>h2{font-size:1.3rem}
+  .offline{background:rgba(180,83,9,.12);color:var(--warn);border-radius:10px;padding:10px 14px;font-size:.86rem;font-weight:700}
+
+  /* groups + list items */
+  details.group,details.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  details>summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:800;display:flex;align-items:center;gap:10px}
+  details>summary::-webkit-details-marker{display:none}
+  details>summary::before{content:"▸";color:var(--muted);font-size:.8rem;flex:none}
+  details[open]>summary::before{content:"▾"}
+  details .body{padding:4px 16px 18px;display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:16px}
+  .list{display:flex;flex-direction:column;gap:10px}
+  .item .ttl{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;unicode-bidi:plaintext;text-align:left}
+  .item .n{width:24px;height:24px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:.75rem;color:var(--muted);flex:none}
+  .item .acts{display:flex;gap:5px;flex:none}
+  .pill{font-size:.7rem;font-weight:800;background:rgba(180,83,9,.14);color:var(--warn);padding:2px 9px;border-radius:999px;flex:none}
+
+  /* fields */
+  .field{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .lbl{font-size:.8rem;font-weight:800;color:var(--muted)}
+  .hint{font-size:.78rem;color:var(--muted)}
+  input[type=text],input[type=password],select,textarea{width:100%;border:1.5px solid var(--line);background:var(--bg);border-radius:10px;padding:9px 12px;outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--brand)}
+  textarea{resize:vertical;min-height:70px}
+  .bi{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;min-width:0}
+  .lang{position:relative;min-width:0}
+  .lang .lg{position:absolute;top:-8px;inset-inline-start:10px;font-size:.62rem;font-weight:800;background:var(--surface);color:var(--muted);padding:0 5px;border-radius:4px;z-index:1}
+  .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .frow{display:flex;gap:8px;align-items:center}
+  .check{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;cursor:pointer}
+  .check input{width:17px;height:17px}
+  .imgrow{display:flex;gap:12px;align-items:flex-start}
+  .thumb{width:110px;height:76px;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--soft);flex:none}
+  .imgside{flex:1;display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+
+  #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:12px;
+    font-weight:700;font-size:.88rem;opacity:0;pointer-events:none;transition:.25s;z-index:50;max-width:calc(100vw - 32px);text-align:center}
+  #toast.show{opacity:1;transform:translateX(-50%)}
+  #toast.bad{background:var(--danger);color:#fff}
+
+  @media(max-width:800px){
+    .shell{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:0}
+    .tabs{flex-direction:row;overflow-x:auto;top:57px;background:var(--bg);padding:10px 0;z-index:10;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{white-space:nowrap;padding:8px 13px}
+    .bi{grid-template-columns:1fr}
+    .top h1{font-size:.95rem}
+    .top .hide-sm{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <span class="logo">‹/›</span>
+    <h1>Site dashboard</h1>
+    <p>Connect with a GitHub access token to edit and publish the website. The token is kept only in this browser.</p>
+    <label class="field"><span class="lbl">GitHub access token</span>
+      <input type="password" id="token" placeholder="github_pat_…" autocomplete="off" spellcheck="false" /></label>
+    <details>
+      <summary style="padding:0;font-size:.86rem;color:var(--muted)">Repository</summary>
+      <div class="row" style="margin-top:12px">
+        <label class="field"><span class="lbl">Owner</span><input type="text" id="owner" dir="ltr" /></label>
+        <label class="field"><span class="lbl">Repo</span><input type="text" id="repo" dir="ltr" /></label>
+        <label class="field"><span class="lbl">Branch</span><input type="text" id="branch" dir="ltr" /></label>
+      </div>
+    </details>
+    <label class="check"><input type="checkbox" id="remember" checked /> Stay signed in on this device</label>
+    <div class="err" id="loginErr" hidden></div>
+    <button class="btn primary" id="connectBtn" type="submit">Connect</button>
+    <button class="linkish" id="offlineBtn" type="button">Edit without connecting (no publishing)</button>
+    <details>
+      <summary style="padding:0;font-size:.86rem;color:var(--muted)">How do I get a token?</summary>
+      <ol style="margin-top:10px">
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token</a>.</li>
+        <li>Repository access: <b>Only select repositories</b> → this site's repo.</li>
+        <li>Repository permissions → <b>Contents: Read and write</b>.</li>
+        <li>Generate, copy the token, and paste it above.</li>
+      </ol>
+    </details>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app" hidden>
+  <header class="top">
+    <span class="logo">‹/›</span>
+    <h1>Dashboard</h1>
+    <span class="status" id="status">All changes saved</span>
+    <a class="btn small hide-sm" href="index.html" target="_blank" rel="noopener">View site</a>
+    <button class="btn small" id="downloadBtn" type="button" title="Download content.js">Download</button>
+    <button class="btn small" id="previewBtn" type="button">Preview</button>
+    <button class="btn small primary" id="saveBtn" type="button" disabled>Save &amp; publish</button>
+    <button class="btn small hide-sm" id="signOutBtn" type="button">Sign out</button>
+  </header>
+  <div class="shell">
+    <nav class="tabs" id="tabs"></nav>
+    <main id="panel"></main>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="content.js"></script>
+<script>
+const REPO_DEFAULT={owner:"Mahmoud-Elshahatt",repo:"code-with-mahmoud",branch:"main"};
+const FILE="content.js";
+const HEADER="/* Site content — edited from admin.html (the dashboard). The object below must stay valid JSON. */\n";
+const KEY="cwm_admin";
+
+let conn=null;          // {token,owner,repo,branch} — null when editing offline
+let data=null,sha=null,dirty=false;
+const localImages=new Map(); // freshly uploaded image path -> object URL, until the site redeploys
+
+const $=id=>document.getElementById(id);
+function h(tag,attrs,...kids){
+  const el=document.createElement(tag);
+  for(const k in attrs||{}){
+    const v=attrs[k];
+    if(v==null||v===false)continue;
+    if(k==="class")el.className=v;
+    else if(k.startsWith("on"))el.addEventListener(k.slice(2),v);
+    else if(k in el)el[k]=v;
+    else el.setAttribute(k,v);
+  }
+  kids.flat().forEach(c=>{if(c==null||c===false)return;el.append(c.nodeType?c:document.createTextNode(c));});
+  return el;
+}
+let toastTimer;
+function toast(msg,bad){
+  const t=$("toast");t.textContent=msg;t.className="show"+(bad?" bad":"");
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.className="",bad?6000:3500);
+}
+
+/* ---------- GitHub API ---------- */
+async function gh(path,opts={}){
+  const r=await fetch(`https://api.github.com/repos/${conn.owner}/${conn.repo}/${path}`,{
+    ...opts,cache:"no-store",
+    headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+conn.token,"X-GitHub-Api-Version":"2022-11-28"}
+  });
+  if(!r.ok){
+    const body=await r.json().catch(()=>({}));
+    const e=new Error(body.message||r.statusText);e.status=r.status;throw e;
+  }
+  return r.json();
+}
+const filePath=p=>"contents/"+p.split("/").map(encodeURIComponent).join("/");
+const b64encode=bytes=>{let s="";for(let i=0;i<bytes.length;i+=0x8000)s+=String.fromCharCode.apply(null,bytes.subarray(i,i+0x8000));return btoa(s);};
+const b64decode=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,"")),c=>c.charCodeAt(0)));
+function parseContent(text){
+  const i=text.indexOf("{",Math.max(0,text.indexOf("window.SITE_CONTENT")));
+  return JSON.parse(text.slice(i,text.lastIndexOf("}")+1));
+}
+function serialize(){return HEADER+"window.SITE_CONTENT = "+JSON.stringify(data,null,1)+";\n";}
+function normalize(d){
+  d=d||{};
+  d.settings=d.settings||{};
+  d.waMessages=d.waMessages||{};
+  ["general","contact"].forEach(k=>{d.waMessages[k]=d.waMessages[k]||{ar:"",en:""};});
+  d.texts=d.texts||{};d.texts.ar=d.texts.ar||{};d.texts.en=d.texts.en||{};
+  ["stats","courses","why","projects","gallery","reviews","skills","faq"].forEach(k=>{if(!Array.isArray(d[k]))d[k]=[];});
+  return d;
+}
+
+async function connect(c,remember){
+  conn=c;
+  let f;
+  try{f=await gh(filePath(FILE)+"?ref="+encodeURIComponent(c.branch));}
+  catch(e){
+    conn=null;
+    if(e.status===401)throw new Error("GitHub rejected this token. Check that it is correct and not expired.");
+    if(e.status===404)throw new Error(`Could not find ${FILE} in ${c.owner}/${c.repo} on branch "${c.branch}". Check the repository details and that the token has access to this repo.`);
+    throw e;
+  }
+  sha=f.sha;
+  data=normalize(parseContent(b64decode(f.content)));
+  try{
+    sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);
+    (remember?localStorage:sessionStorage).setItem(KEY,JSON.stringify(c));
+  }catch(e){}
+  start();
+}
+
+async function save(){
+  if(!conn||!dirty)return;
+  const seen=new Set();
+  data.courses.forEach(c=>{if(!c.id||seen.has(c.id))c.id="course-"+Math.random().toString(36).slice(2,8);seen.add(c.id);});
+  const btn=$("saveBtn");btn.disabled=true;btn.textContent="Publishing…";
+  try{
+    const r=await gh(filePath(FILE),{method:"PUT",body:JSON.stringify({
+      message:"Update site content from dashboard",
+      content:b64encode(new TextEncoder().encode(serialize())),sha,branch:conn.branch})});
+    sha=r.content.sha;
+    setDirty(false);
+    toast("Published. The live site updates in a minute or two.");
+  }catch(e){
+    setDirty(true);
+    if(e.status===409)toast("The content changed on GitHub since you opened the dashboard. Reload the page, then redo your edit.",true);
+    else if(e.status===403||e.status===404)toast("This token cannot write to the repo. It needs “Contents: Read and write”.",true);
+    else toast("Could not publish: "+e.message,true);
+  }
+  btn.textContent="Save & publish";
+}
+
+/* shrink to max 1400px and re-encode as JPEG so the repo stays small */
+async function uploadImage(file,folder){
+  const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error("not a readable image"));i.src=URL.createObjectURL(file);});
+  const scale=Math.min(1,1400/Math.max(img.naturalWidth,img.naturalHeight));
+  const cv=h("canvas",{width:Math.round(img.naturalWidth*scale),height:Math.round(img.naturalHeight*scale)});
+  const ctx=cv.getContext("2d");ctx.fillStyle="#fff";ctx.fillRect(0,0,cv.width,cv.height);ctx.drawImage(img,0,0,cv.width,cv.height);
+  URL.revokeObjectURL(img.src);
+  const blob=await new Promise(res=>cv.toBlob(res,"image/jpeg",.86));
+  const slug=file.name.replace(/\.[^.]+$/,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"image";
+  const path=(folder?folder+"/":"")+slug+"-"+Date.now().toString(36)+".jpg";
+  await gh(filePath(path),{method:"PUT",body:JSON.stringify({
+    message:"Upload "+path,content:b64encode(new Uint8Array(await blob.arrayBuffer())),branch:conn.branch})});
+  localImages.set(path,URL.createObjectURL(blob));
+  return path;
+}
+
+/* ---------- form building blocks ---------- */
+function setDirty(v){
+  dirty=v;
+  const s=$("status");
+  s.textContent=!conn?"Offline — changes are not published":v?"Unsaved changes":"All changes saved";
+  s.className="status"+(v||!conn?" warn":"");
+  $("saveBtn").disabled=!v||!conn;
+}
+const touch=()=>setDirty(true);
+
+function input(value,onchange,o={}){
+  const el=o.area?h("textarea",{rows:o.rows||3}):h("input",{type:"text"});
+  el.value=value==null?"":value;
+  el.dir=o.dir||"auto";
+  if(o.ph)el.placeholder=o.ph;
+  el.addEventListener("input",()=>{onchange(el.value);touch();});
+  return el;
+}
+const field=(label,control,hint)=>h("div",{class:"field"},h("span",{class:"lbl"},label),control,hint&&h("span",{class:"hint"},hint));
+const txt=(label,obj,key,o={})=>field(label,input(obj[key],v=>{obj[key]=o.num?(+v||0):v;},o),o.hint);
+function bi(label,get,set,o={}){
+  return field(label,h("div",{class:"bi"},
+    h("div",{class:"lang"},h("span",{class:"lg"},"عربي"),input(get("ar"),v=>set("ar",v),{...o,dir:"rtl"})),
+    h("div",{class:"lang"},h("span",{class:"lg"},"EN"),input(get("en"),v=>set("en",v),{...o,dir:"ltr"}))),o.hint);
+}
+function biObj(label,obj,key,o){
+  if(!obj[key]||typeof obj[key]!=="object")obj[key]={ar:"",en:""};
+  const v=obj[key];
+  return bi(label,l=>v[l],(l,x)=>{v[l]=x;},o);
+}
+const biText=(label,key,o)=>bi(label,l=>data.texts[l][key],(l,x)=>{data.texts[l][key]=x;},o);
+function sel(label,obj,key,opts){
+  const s=h("select",{},opts.map(([v,t])=>h("option",{value:v},t)));
+  s.value=obj[key]||opts[0][0];
+  s.addEventListener("change",()=>{obj[key]=s.value;touch();});
+  return field(label,s);
+}
+function check(label,obj,key){
+  const c=h("input",{type:"checkbox"});c.checked=!!obj[key];
+  c.addEventListener("change",()=>{obj[key]=c.checked;touch();});
+  return h("label",{class:"check"},c,label);
+}
+function iconBtn(text,title,fn,disabled,cls){
+  return h("button",{class:"icon-btn"+(cls?" "+cls:""),type:"button",title,"aria-label":title,disabled:!!disabled,
+    onclick:e=>{e.preventDefault();e.stopPropagation();fn();}},text);
+}
+const group=(title,open,...kids)=>h("details",{class:"group",open},h("summary",{},title),h("div",{class:"body"},kids));
+const heading=p=>group("Section heading",false,
+  biText("Small label",p+"_eyebrow"),biText("Title",p+"_title"),biText("Subtitle",p+"_sub",{area:true,rows:2}));
+
+/* a list of {ar,en} lines, e.g. course features */
+function biList(label,arr,addLabel){
+  const wrap=h("div",{class:"field"});
+  const draw=()=>wrap.replaceChildren(h("span",{class:"lbl"},label),
+    ...arr.map((v,i)=>h("div",{class:"frow"},
+      h("div",{class:"bi"},input(v.ar,x=>{v.ar=x;},{dir:"rtl",ph:"عربي"}),input(v.en,x=>{v.en=x;},{dir:"ltr",ph:"English"})),
+      iconBtn("✕","Remove",()=>{arr.splice(i,1);touch();draw();},false,"del"))),
+    h("button",{class:"btn small add",type:"button",onclick:()=>{arr.push({ar:"",en:""});touch();draw();}},"+ "+addLabel));
+  draw();
+  return wrap;
+}
+
+function imageField(label,obj,key,folder){
+  const img=h("img",{class:"thumb",alt:""});
+  const show=()=>{const p=obj[key];if(p){img.src=localImages.get(p)||p;img.style.visibility="visible";}else{img.removeAttribute("src");img.style.visibility="hidden";}};
+  const path=input(obj[key],v=>{obj[key]=v.trim();show();},{dir:"ltr",ph:"gallery/my-image.png"});
+  const file=h("input",{type:"file",accept:"image/*",hidden:true});
+  const up=h("button",{class:"btn small",type:"button",onclick:()=>{
+    if(!conn){toast("Connect with a GitHub token to upload images.",true);return;}
+    file.click();
+  }},"Upload image");
+  file.addEventListener("change",async()=>{
+    const f=file.files[0];if(!f)return;
+    up.disabled=true;up.textContent="Uploading…";
+    try{
+      obj[key]=await uploadImage(f,folder);path.value=obj[key];show();touch();
+      toast("Image uploaded. Press “Save & publish” to use it on the site.");
+    }catch(e){toast("Upload failed: "+e.message,true);}
+    up.disabled=false;up.textContent="Upload image";file.value="";
+  });
+  show();
+  return field(label,h("div",{class:"imgrow"},img,h("div",{class:"imgside"},path,up,file)));
+}
+
+/* collapsible, reorderable list of items */
+function list(arr,cfg){
+  const wrap=h("div",{class:"list"});
+  const draw=openIdx=>{
+    wrap.replaceChildren(...arr.map((item,i)=>{
+      const ttl=h("span",{class:"ttl"});
+      const flag=h("span",{class:"pill"},"Hidden");
+      const sync=()=>{ttl.textContent=cfg.title(item)||"(empty)";flag.hidden=!item.hidden;};
+      const move=d=>{arr.splice(i+d,0,arr.splice(i,1)[0]);touch();draw();};
+      const el=h("details",{class:"item",open:i===openIdx},
+        h("summary",{},h("span",{class:"n"},String(i+1)),ttl,flag,
+          h("span",{class:"acts"},
+            iconBtn("↑","Move up",()=>move(-1),i===0),
+            iconBtn("↓","Move down",()=>move(1),i===arr.length-1),
+            iconBtn("✕","Delete",()=>{if(confirm("Delete “"+(cfg.title(item)||"this item")+"”?")){arr.splice(i,1);touch();draw();}},false,"del"))),
+        h("div",{class:"body"},cfg.form(item)));
+      el.addEventListener("input",sync);el.addEventListener("change",sync);
+      sync();
+      return el;
+    }),
+    h("button",{class:"btn add",type:"button",onclick:()=>{arr.push(cfg.blank());touch();draw(arr.length-1);}},"+ "+cfg.add));
+  };
+  draw();
+  return wrap;
+}
+const B=()=>({ar:"",en:""});
+const name=v=>(v&&(v.ar||v.en))||"";
+
+/* ---------- tabs ---------- */
+const TABS=[
+  ["courses","Courses",()=>[
+    list(data.courses,{add:"Add course",title:c=>name(c.title)+(c.price?" — "+c.price:""),
+      blank:()=>({id:"course-"+Date.now().toString(36),style:"kids",icon:"📘",badge:B(),tag:B(),title:B(),note:B(),stack:B(),price:"",priceText:B(),
+        per:{ar:"ج.م / شهريًا",en:"EGP / month"},duration:B(),features:[B()],waMessage:B()}),
+      form:c=>[
+        biObj("Course title",c,"title"),
+        h("div",{class:"row"},
+          txt("Price (number)",c,"price",{dir:"ltr",hint:"Leave empty to show the price text instead"}),
+          txt("Emoji icon",c,"icon"),
+          sel("Card colour",c,"style",[["kids","Pink / amber"],["adults","Blue"],["videos","Orange / red"],["school","Green"]])),
+        biObj("Price unit (next to the number)",c,"per"),
+        biObj("Price text (used when the price is empty)",c,"priceText"),
+        biObj("Duration line",c,"duration"),
+        biObj("Audience tag",c,"tag"),
+        biObj("Subtitle",c,"stack"),
+        biObj("Highlight line (optional)",c,"note"),
+        biObj("Corner badge (optional)",c,"badge"),
+        biList("Features",c.features=c.features||[],"Add feature"),
+        biObj("WhatsApp message sent when a visitor taps Enroll",c,"waMessage",{area:true,rows:2}),
+        check("Hide this course from the site",c,"hidden")
+      ]}),
+    heading("courses"),
+    group("Enroll button",false,biText("Button text","enroll"))
+  ]],
+  ["reviews","Reviews",()=>[
+    list(data.reviews,{add:"Add review",title:r=>r.name,blank:()=>({text:"",name:"",age:""}),
+      form:r=>[txt("Review",r,"text",{area:true}),h("div",{class:"row"},txt("Name",r,"name"),txt("Age / description",r,"age",{ph:"12 سنة"}))]}),
+    heading("rev")
+  ]],
+  ["gallery","Gallery",()=>[
+    list(data.gallery,{add:"Add work",title:g=>name(g.title),blank:()=>({image:"",icon:"🎮",tag:B(),title:B(),desc:B()}),
+      form:g=>[imageField("Image",g,"image","gallery"),biObj("Title",g,"title"),biObj("Description",g,"desc",{area:true,rows:2}),
+        h("div",{class:"row"},biObj("Badge",g,"tag"),txt("Emoji shown if the image is missing",g,"icon"))]}),
+    heading("gal")
+  ]],
+  ["projects","Projects",()=>[
+    list(data.projects,{add:"Add project",title:p=>(p.icon?p.icon+" ":"")+name(p.title),blank:()=>({icon:"✨",title:B(),desc:B(),tag:B()}),
+      form:p=>[biObj("Title",p,"title"),biObj("Description",p,"desc",{area:true,rows:2}),
+        h("div",{class:"row"},biObj("Label",p,"tag"),txt("Emoji",p,"icon"))]}),
+    heading("proj")
+  ]],
+  ["faq","FAQ",()=>[
+    list(data.faq,{add:"Add question",title:f=>name(f.q),blank:()=>({q:B(),a:B()}),
+      form:f=>[biObj("Question",f,"q"),biObj("Answer",f,"a",{area:true})]}),
+    group("Section heading",false,biText("Small label","faq_eyebrow"),biText("Title","faq_title"))
+  ]],
+  ["hero","Hero & stats",()=>[
+    group("Hero (top of the page)",true,
+      biText("Badge","hero_badge"),
+      biText("Headline","hero_title",{area:true,rows:2,hint:'Wrap the highlighted words like this: <span class="hl">words</span>'}),
+      biText("Intro paragraph","hero_lead",{area:true,rows:4}),
+      biText("Main button","hero_cta1"),biText("Second button","hero_cta2"),
+      biText("Point 1","hero_b1"),biText("Point 2","hero_b2"),biText("Point 3","hero_b3")),
+    group("Stats numbers",true,
+      list(data.stats,{add:"Add stat",title:s=>s.value+(s.suffix||"")+" — "+name(s.label),blank:()=>({value:0,suffix:"+",label:B()}),
+        form:s=>[h("div",{class:"row"},txt("Number",s,"value",{dir:"ltr",num:true}),txt("Suffix",s,"suffix",{dir:"ltr"})),biObj("Label",s,"label")]})),
+    group("Top menu",false,
+      biText("Site name","brand"),biText("Courses","nav_courses"),biText("Why me","nav_why"),biText("Projects","nav_projects"),
+      biText("Gallery","nav_gallery"),biText("Reviews","nav_reviews"),biText("Instructor","nav_about"),biText("FAQ","nav_faq"),
+      biText("Contact","nav_contact"),biText("Menu button","nav_cta"))
+  ]],
+  ["why","Why me",()=>[
+    list(data.why,{add:"Add reason",title:w=>(w.icon?w.icon+" ":"")+name(w.title),blank:()=>({icon:"⭐",title:B(),desc:B()}),
+      form:w=>[biObj("Title",w,"title"),biObj("Description",w,"desc",{area:true,rows:2}),txt("Emoji",w,"icon")]}),
+    heading("why")
+  ]],
+  ["about","About me",()=>[
+    group("Instructor",true,
+      imageField("Photo",data.settings,"photo",""),
+      biText("Name","about_name"),biText("Role","about_role"),
+      biText("Paragraph 1","about_p1",{area:true,rows:4}),biText("Paragraph 2","about_p2",{area:true,rows:4}),
+      field("Skills",input(data.skills.join(", "),v=>{data.skills=v.split(",").map(s=>s.trim()).filter(Boolean);},{dir:"ltr"}),"Separate with commas")),
+    group("Social links",true,
+      txt("LinkedIn",data.settings,"linkedin",{dir:"ltr"}),txt("GitHub",data.settings,"github",{dir:"ltr"}),
+      txt("Portfolio",data.settings,"portfolio",{dir:"ltr",hint:"Leave a link empty to hide its icon"})),
+    group("Section heading",false,biText("Small label","about_eyebrow"),biText("Title","about_h"))
+  ]],
+  ["contact","Contact & payment",()=>[
+    group("Contact details",true,
+      txt("WhatsApp number",data.settings,"whatsapp",{dir:"ltr",hint:"International format, digits only — e.g. 201093729626"}),
+      txt("Email",data.settings,"email",{dir:"ltr"}),
+      biText("Location","contact_loc")),
+    group("Payment numbers",true,
+      h("div",{class:"row"},txt("Vodafone Cash",data.settings,"vodafoneCash",{dir:"ltr"}),txt("InstaPay",data.settings,"instapay",{dir:"ltr"})),
+      h("span",{class:"hint"},"Leave a number empty to hide that payment method."),
+      biText("Box title","pay_title"),biText("Line under the title","pay_sub"),
+      biText("Vodafone Cash label","pay_vc"),biText("InstaPay label","pay_ip"),biText("Note","pay_note",{area:true,rows:2})),
+    group("WhatsApp messages",false,
+      biObj("“Book a trial” buttons",data.waMessages,"general",{area:true,rows:2}),
+      biObj("Contact section button",data.waMessages,"contact",{area:true,rows:2})),
+    group("Contact section text",false,
+      biText("Small label","contact_eyebrow"),biText("Title","contact_h"),biText("Paragraph","contact_lead",{area:true,rows:2}),biText("Button","contact_btn")),
+    group("Footer",false,biText("Footer line","foot"))
+  ]]
+];
+
+function showTab(id){
+  const tab=TABS.find(t=>t[0]===id)||TABS[0];
+  [...$("tabs").children].forEach(b=>b.classList.toggle("on",b.dataset.id===tab[0]));
+  $("panel").replaceChildren(h("h2",{},tab[1]),
+    !conn&&h("div",{class:"offline"},"Offline mode: edits are not published. Use Download to save content.js, or reload and connect with a token."),
+    ...tab[2]());
+  try{sessionStorage.setItem("cwm_tab",tab[0]);}catch(e){}
+  window.scrollTo(0,0);
+}
+
+function start(){
+  $("login").hidden=true;$("app").hidden=false;
+  $("tabs").replaceChildren(...TABS.map(t=>h("button",{class:"tab",type:"button","data-id":t[0],onclick:()=>showTab(t[0])},t[1])));
+  $("downloadBtn").hidden=!!conn;
+  $("signOutBtn").textContent=conn?"Sign out":"Connect";
+  setDirty(false);
+  let last=null;try{last=sessionStorage.getItem("cwm_tab");}catch(e){}
+  showTab(last);
+}
+
+/* ---------- wiring ---------- */
+$("saveBtn").addEventListener("click",save);
+$("previewBtn").addEventListener("click",()=>{
+  try{localStorage.setItem("cwm_preview",JSON.stringify(data));}catch(e){toast("Preview needs browser storage, which is blocked here.",true);return;}
+  window.open("index.html?preview=1","cwm_preview");
+});
+$("downloadBtn").addEventListener("click",()=>{
+  const a=h("a",{href:URL.createObjectURL(new Blob([serialize()],{type:"text/javascript"})),download:FILE});
+  document.body.append(a);a.click();a.remove();
+});
+$("signOutBtn").addEventListener("click",()=>{
+  if(dirty&&!confirm("You have unsaved changes. Leave anyway?"))return;
+  try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}
+  dirty=false;location.reload();
+});
+window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
+
+$("owner").value=REPO_DEFAULT.owner;$("repo").value=REPO_DEFAULT.repo;$("branch").value=REPO_DEFAULT.branch;
+async function tryConnect(c,remember){
+  const btn=$("connectBtn"),err=$("loginErr");
+  err.hidden=true;btn.disabled=true;btn.textContent="Connecting…";
+  try{await connect(c,remember);}
+  catch(e){err.textContent=e.message;err.hidden=false;}
+  btn.disabled=false;btn.textContent="Connect";
+}
+$("loginForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const token=$("token").value.trim();
+  if(!token){$("loginErr").textContent="Paste your GitHub token first.";$("loginErr").hidden=false;return;}
+  tryConnect({token,owner:$("owner").value.trim(),repo:$("repo").value.trim(),branch:$("branch").value.trim()||"main"},$("remember").checked);
+});
+$("offlineBtn").addEventListener("click",()=>{
+  if(!window.SITE_CONTENT){$("loginErr").textContent="content.js could not be loaded.";$("loginErr").hidden=false;return;}
+  conn=null;sha=null;data=normalize(JSON.parse(JSON.stringify(window.SITE_CONTENT)));start();
+});
+(function(){
+  let saved=null;
+  try{saved=JSON.parse(localStorage.getItem(KEY)||sessionStorage.getItem(KEY)||"null");}catch(e){}
+  if(saved&&saved.token){
+    let remembered=false;try{remembered=!!localStorage.getItem(KEY);}catch(e){}
+    tryConnect(saved,remembered);
+  }
+})();
+</script>
+</body>
+</html>
