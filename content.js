@@ -63,7 +63,7 @@ window.SITE_CONTENT = {
    "about_role": "مطوّر أندرويد ومدرّب برمجة",
    "about_eyebrow": "عن المدرّب",
    "about_h": "من يعلّمك؟",
-   "about_p1": "محمود الشحات — مطوّر أندرويد بخبرة تزيد عن 3 سنوات في Awamer Alshabaka (AAIT) و Alexon Incorp. خريج كلية الهندسة جامعة المنصورة (هندسة الحاسبات ونظم التحكم)، وحاصل على شهادة تطوير أندرويد من Udacity / MCIT.",
+   "about_p1": "محمود الشحات — مطوّر أندرويد بخبرة تزيد على 4 سنوات في 3 شركات: Kaitech و Awamer Alshabaka (AAIT) و Alexon Incorp. خريج كلية الهندسة بجامعة المنصورة (هندسة الحاسبات ونظم التحكم)، وحاصل على شهادة تطوير أندرويد من Udacity / MCIT.",
    "about_p2": "شحنت أكثر من 8 تطبيقات على جوجل بلاي في مجالات التجارة الإلكترونية والنقل والطب عن بُعد والخدمات عند الطلب، يخدم بعضها آلاف المستخدمين يوميًا. أنقل لك هذه الخبرة العملية مباشرة.",
    "faq_eyebrow": "الأسئلة الشائعة",
    "faq_title": "عندك سؤال؟",
@@ -123,7 +123,7 @@ window.SITE_CONTENT = {
    "about_role": "Android Developer & Coding Instructor",
    "about_eyebrow": "About the Instructor",
    "about_h": "Who will teach you?",
-   "about_p1": "Mahmoud Elshahatt — Android Developer with 3+ years of experience at Awamer Alshabaka (AAIT) and Alexon Incorp. Graduate of the Faculty of Engineering, Mansoura University (Computer Science & Control Systems), with an Android Development certification from Udacity / MCIT.",
+   "about_p1": "Mahmoud Elshahatt — Android Developer with 4+ years of experience across 3 companies: Kaitech, Awamer Alshabaka (AAIT) and Alexon Incorp. Graduate of the Faculty of Engineering, Mansoura University (Computer Science & Control Systems), with an Android Development certification from Udacity / MCIT.",
    "about_p2": "Shipped 8+ apps on Google Play across e-commerce, ride-hailing, telemedicine and on-demand services, some serving thousands of daily users. I pass this hands-on experience straight to you.",
    "faq_eyebrow": "FAQ",
    "faq_title": "Got a question?",
@@ -144,7 +144,7 @@ window.SITE_CONTENT = {
  },
  "stats": [
   {
-   "value": 3,
+   "value": 4,
    "suffix": "+",
    "label": {
     "ar": "سنوات خبرة احترافية",
@@ -426,8 +426,8 @@ window.SITE_CONTENT = {
     "en": "Straight from the field"
    },
    "desc": {
-    "ar": "أكثر من 3 سنوات كمطوّر أندرويد محترف في Awamer Alshabaka (AAIT) و Alexon Incorp.",
-    "en": "3+ years as a professional Android developer at Awamer Alshabaka (AAIT) and Alexon Incorp."
+    "ar": "أكثر من 4 سنوات كمطوّر أندرويد محترف في Kaitech و Awamer Alshabaka (AAIT) و Alexon Incorp.",
+    "en": "4+ years as a professional Android developer at Kaitech, Awamer Alshabaka (AAIT) and Alexon Incorp."
    }
   },
   {
